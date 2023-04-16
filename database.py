@@ -25,9 +25,9 @@ def save_doctors(doctors_list):
     with open("doctors.pkl", "wb") as f:
         pickle.dump(doctors_list, f, pickle.HIGHEST_PROTOCOL)
 
-def save_employee(employee_list):
-    with open("employee.pkl", "wb") as f:
-        pickle.dump(employee_list, f, pickle.HIGHEST_PROTOCOL)
+def save_employees(employees_list):
+    with open("employees.pkl", "wb") as f:
+        pickle.dump(employees_list, f, pickle.HIGHEST_PROTOCOL)
 
 def save_patients(patients_list):
     with open("patients.pkl", "wb") as f:
@@ -48,13 +48,13 @@ def save_pa_roo(pa_roo_list):
 def zip_data():
     with zipfile.ZipFile('hospital.dat', 'w', compression=zipfile.ZIP_DEFLATED) as zip:        
         zip.writestr('doctors.pkl', pickle.dumps(doctor_list))
-        zip.writestr('employee.pkl', pickle.dumps(nurse_list))
+        zip.writestr('employees.pkl', pickle.dumps(nurse_list))
         zip.writestr('patients.pkl', pickle.dumps(patient_list))
         zip.writestr('rooms.pkl', pickle.dumps([]))
         zip.writestr('pa_doc.pkl', pickle.dumps([]))
         zip.writestr('pa_roo.pkl', pickle.dumps([]))
     os.remove('doctors.pkl')
-    os.remove('employee.pkl')
+    os.remove('employees.pkl')
     os.remove('patients.pkl')
     os.remove('rooms.pkl')
     os.remove('pa_doc.pkl')
@@ -70,13 +70,13 @@ def load_doctors():
 
     return (doctor_list)
 
-def load_employee():
-    employee_list = []
-    if(os.path.exists("employee.pkl")):
-        with open("employee.pkl", "rb") as f:
-            employee_list = pickle.load(f)
+def load_employees():
+    employees_list = []
+    if(os.path.exists("employees.pkl")):
+        with open("employees.pkl", "rb") as f:
+            employees_list = pickle.load(f)
 
-    return (employee_list)
+    return (employees_list)
 
 def load_patients():
     patients_list = []

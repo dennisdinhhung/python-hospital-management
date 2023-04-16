@@ -17,8 +17,8 @@ def on_GUI_loaded():
   database.unzip_data()
   global doctors_list
   doctors_list = database.load_doctors()
-  global workers_list
-  workers_list = database.load_workers()
+  global employees_list
+  employees_list = database.load_employees()
   global patients_list
   patients_list = database.load_patients()
   # global medicines_list
@@ -31,31 +31,31 @@ def on_GUI_loaded():
 def on_exit():
   global doctors_list
   database.save_doctors(doctors_list)
-  global workers_list
-  database.save_workers(workers_list)
+  global employees_list
+  database.save_employees(employees_list)
   global patients_list
   database.save_patients(patients_list)
   global medicines_list
-  database.save_medicines(medicines_list)
+  database.save_rooms(rooms_list)
   global pa_doc_list
   database.save_pa_doc(pa_doc_list)
-  global pa_med_list
-  database.save_pa_med(pa_med_list)
+  global pa_roo_list
+  database.save_pa_roo(pa_roo_list)
   database.zip_data()
   window.destroy()
   
 global doctors_list
 doctors_list = []
-global workers_list
-workers_list = []
+global employees_list
+employees_list = []
 global patients_list
 patients_list = []
 global medicines_list
-medicines_list = []
+rooms_list = []
 global pa_doc_list
 pa_doc_list = []
-global pa_med_list
-pa_med_list = []
+global pa_roo_list
+pa_roo_list = []
 
 
 def create_window(window):
