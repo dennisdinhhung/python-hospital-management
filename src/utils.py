@@ -22,8 +22,8 @@ def invalid_gender(gender):
         return 1
     else: return 0
 
-def invalid_gend(gend):
-    if gend != "M" and gend != "F":
+def invalid_type(type):
+    if type != "Regular" and type != "Emergency" and type != "Deluxe":
         return 1
     else: return 0
 

@@ -6,7 +6,7 @@ from tkinter import ttk
 from tk import *
 import utils
 
-def clear_entry(entry_frame, id_entry, name_entry, price_entry, description_entry):
+def clear_entry(entry_frame, id_entry, type_entry, price_entry, description_entry):
     # Delete all Warnings
     Label(entry_frame, bg='#88C1C2', fg='crimson', text='                                  ', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
     Label(entry_frame, bg='#88C1C2', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
@@ -14,7 +14,7 @@ def clear_entry(entry_frame, id_entry, name_entry, price_entry, description_entr
 
     # Empty Entry boxes
     id_entry.delete(0, END)
-    name_entry.delete(0, END)
+    type_entry.delete(0, END)
     price_entry.delete(0, END)
     description_entry.delete('1.0', END)
 
@@ -22,7 +22,7 @@ def clear_entry(entry_frame, id_entry, name_entry, price_entry, description_entr
     global selected_room
     selected_room = -1
 
-def room_add(room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry):
+def room_add(room_list, room_tree, entry_frame, id_entry, type_entry, price_entry, description_entry):
     # Delete all Warnings
     Label(entry_frame, bg='#88C1C2', fg='crimson', text='                                  ', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
     Label(entry_frame, bg='#88C1C2', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
@@ -30,7 +30,7 @@ def room_add(room_list, room_tree, entry_frame, id_entry, name_entry, price_entr
 
     # Read Inputs
     id = id_entry.get()
-    name = name_entry.get()
+    type = type_entry.get()
     price = price_entry.get()
     description = description_entry.get("1.0",'end-1c')
 
@@ -41,7 +41,7 @@ def room_add(room_list, room_tree, entry_frame, id_entry, name_entry, price_entr
     if len(id) == 0:
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
-    elif utils.invalid_id(id, "M-") == 1:
+    elif utils.invalid_id(id, "R-") == 1:
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     else:
@@ -51,10 +51,14 @@ def room_add(room_list, room_tree, entry_frame, id_entry, name_entry, price_entr
                 valid_check += 1
                 break
 
-    # Validate Name
-    if len(name) == 0:
-        Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    # Validate Type
+    if len(type) == 0:
+        Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
         valid_check += 1
+    elif utils.invalid_type(type) == 1:
+        Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+        valid_check += 1
+
 
     # Validate Price
     if len(price) == 0:
@@ -67,18 +71,18 @@ def room_add(room_list, room_tree, entry_frame, id_entry, name_entry, price_entr
     # If ALL valid:
     if valid_check == 0:
         # Add to room_list:
-        new_room = Room(id,name,price)
+        new_room = Room(id,type,price)
         if len(description)>0:
             new_room.set_description(description)
         room_list.append(new_room)
 
         # Display on Treeview
-        room_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, name, price))
+        room_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, type, price))
 
 
         # Empty Entry boxes
         id_entry.delete(0, END)
-        name_entry.delete(0, END)
+        type_entry.delete(0, END)
         price_entry.delete(0, END)
         description_entry.delete('1.0', END)
 
@@ -104,7 +108,7 @@ def all_room_remove(room_tree, room_list, pa_room_list):
     pa_room_list.clear()
     room_list.clear()
 
-def room_select(room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry):
+def room_select(room_list, room_tree, entry_frame, id_entry, type_entry, price_entry, description_entry):
     # Delete all Warnings
     Label(entry_frame, bg='#88C1C2', fg='crimson', text='                                  ', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
     Label(entry_frame, bg='#88C1C2', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
@@ -112,7 +116,7 @@ def room_select(room_list, room_tree, entry_frame, id_entry, name_entry, price_e
 
     # Empty Entry boxes
     id_entry.delete(0, END)
-    name_entry.delete(0, END)
+    type_entry.delete(0, END)
     price_entry.delete(0, END)
     description_entry.delete('1.0', END)
 
@@ -125,12 +129,12 @@ def room_select(room_list, room_tree, entry_frame, id_entry, name_entry, price_e
         for room in room_list:
             if room.get_id()== room_id:
                 id_entry.insert(0, room.get_id())
-                name_entry.insert(0, room.get_name())
+                type_entry.insert(0, room.get_type())
                 price_entry.insert(0, room.get_price())
                 description_entry.insert('0.1', room.get_description())
                 break
 
-def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry):
+def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, type_entry, price_entry, description_entry):
     global selected_room
     if selected_room != -1:
         # Delete all Warnings
@@ -140,7 +144,7 @@ def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_
 
         # Read Inputs
         id = id_entry.get()
-        name = name_entry.get()
+        type = type_entry.get()
         price = price_entry.get()
         description = description_entry.get("1.0",'end-1c')
 
@@ -162,8 +166,8 @@ def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_
                         valid_check += 1
                         break
 
-        # Validate Name
-        if len(name) == 0:
+        # Validate Type
+        if len(type) == 0:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
             valid_check += 1
 
@@ -180,19 +184,19 @@ def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_
             for room in room_list:
                 if room.get_id() == room_tree.item(selected_room, 'values')[0]:
                     room.set_id(id)
-                    room.set_name(name)
+                    room.set_type(type)
                     room.set_price(price)
                     room.set_description(description)
             for relation in pa_room_list:
                 if relation.get_RoomID() == room_tree.item(selected_room, 'values')[0]:
                     relation.set_RoomID(id)
 
-            room_tree.item(selected_room, text="", values = (id, name, price))
+            room_tree.item(selected_room, text="", values = (id, type, price))
             selected_room = -1
 
             # Empty Entry boxes
             id_entry.delete(0, END)
-            name_entry.delete(0, END)
+            type_entry.delete(0, END)
             price_entry.delete(0, END)
             description_entry.delete('1.0', END)
 
@@ -397,25 +401,25 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
     room_tree = ttk.Treeview(room_subwin, selectmode='browse', show='headings')
 
     # Define columns
-    room_tree['columns'] = ("ID", "Name", "Price")
+    room_tree['columns'] = ("ID", "Type", "Price")
 
     # Format columns
     room_tree.column("#0", width=0, stretch=NO)
     room_tree.column("ID", anchor='center', width=75)
-    room_tree.column("Name",anchor='w', width=150)
+    room_tree.column("Type",anchor='center', width=150)
     room_tree.column("Price",anchor='e', width=100)
 
     # Create Headings
     room_tree.heading("#0", text="")
     room_tree.heading("ID", text="ID", anchor='center', command= lambda: utils.sort_room_list_by_column(room_tree, room_list, "ID", False))
-    room_tree.heading("Name", text="Name", anchor='center', command= lambda: utils.sort_room_list_by_column(room_tree, room_list, "Name", False))
+    room_tree.heading("Type", text="Type", anchor='center', command= lambda: utils.sort_room_list_by_column(room_tree, room_list, "Type", False))
     room_tree.heading("Price", text="Price", anchor='center', command= lambda: utils.sort_room_list_by_column(room_tree, room_list, "Price", False))
 
     room_tree.bind('<Motion>', 'break')
 
     # Insert Data
     for room in room_list:
-        room_tree.insert(parent='', index = 'end', iid=room.get_id(), text='', values=(room.get_id(), room.get_name(), room.get_price()))
+        room_tree.insert(parent='', index = 'end', iid=room.get_id(), text='', values=(room.get_id(), room.get_type(), room.get_price()))
         
     room_tree.place(x=fulwidth/2+50, y=50, height=fulheight-250, width=fulwidth/2-100)
 
@@ -440,7 +444,7 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
 
     # Column 2: Atribute
     Label(entry_frame, bg='#88C1C2', fg='white', text=' - ID - ', font=("Ariel", 14, 'bold')).grid(column=2, row=0)
-    Label(entry_frame, bg='#88C1C2', fg='white', text=' - Name - ', font=("Ariel", 14, 'bold')).grid(column=2, row=1)
+    Label(entry_frame, bg='#88C1C2', fg='white', text=' - Type - ', font=("Ariel", 14, 'bold')).grid(column=2, row=1)
     Label(entry_frame, bg='#88C1C2', fg='white', text=' - Price - ', font=("Ariel", 14, 'bold')).grid(column=2, row=2)
 
     # Column 3: |
@@ -452,8 +456,8 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
     id_entry = Entry(entry_frame)
     id_entry.grid(column=4,row=0)
 
-    name_entry = Entry(entry_frame)
-    name_entry.grid(column=4,row=1)
+    type_entry = Entry(entry_frame)
+    type_entry.grid(column=4,row=1)
 
     price_entry = Entry(entry_frame)
     price_entry.grid(column=4,row=2)
@@ -471,21 +475,22 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
     #==================================================================================
 
     Label(room_subwin, text='  - Entries marked with " * " must not be empty ', anchor='w', bg='#88C1C2', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=375, height=30)
-    Label(room_subwin, text='  - ID must be " M-xxx " ', anchor='w', bg='#88C1C2', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=400, height=30)
-    Label(room_subwin, text='  - Price must be a number ', anchor='w', bg='#88C1C2', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=425, height=30)
+    Label(room_subwin, text='  - ID must be " R-xxx ', anchor='w', bg='#88C1C2', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=400, height=30)
+    Label(room_subwin, text='  - Type must be Regular, Emergency or Deluxe ', anchor='w', bg='#88C1C2', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=425, height=30)
+    Label(room_subwin, text='  - Price must be a number ', anchor='w', bg='#88C1C2', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=450, height=30)
 
     add_room_button = Button(room_subwin, text='ADD ROOM',anchor='center',font=("Ariel", 12,'bold'), fg='#88C1C2', relief='ridge',
-        activebackground='#88C1C2', activeforeground='white', command=lambda: room_add(room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry))
+        activebackground='#88C1C2', activeforeground='white', command=lambda: room_add(room_list, room_tree, entry_frame, id_entry, type_entry, price_entry, description_entry))
     add_room_button.place(x=50, y=fulheight-75-85-10-50, width=150, height=50)
     changeColor(add_room_button, "#c5ede2", "white")
 
     update_room_button = Button(room_subwin, text='UPDATE',anchor='center',font=("Ariel", 12,'bold'), fg='#88C1C2', relief='ridge',
-        activebackground='#88C1C2', activeforeground='white', command=lambda: room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry))
+        activebackground='#88C1C2', activeforeground='white', command=lambda: room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, type_entry, price_entry, description_entry))
     update_room_button.place(x=fulwidth/2-50-150, y=fulheight-75-85-10-50, width=150, height=50)
     changeColor(update_room_button, "#c5ede2", "white")
 
     clear_button = Button(room_subwin, text='CLEAR',anchor='center',font=("Ariel", 12,'bold'), fg='red', relief='ridge',
-        activebackground='crimson', activeforeground='white', command=lambda: clear_entry(entry_frame, id_entry, name_entry, price_entry, description_entry))
+        activebackground='crimson', activeforeground='white', command=lambda: clear_entry(entry_frame, id_entry, type_entry, price_entry, description_entry))
     clear_button.place(x=fulwidth/4*1-100, y=fulheight-75-85-10-50, width=200, height=50)
     changeColor(clear_button, "#f2dada", "white")
 
@@ -500,7 +505,7 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
     changeColor(remove_all_room_button, "#f2dada", "white")
 
     select_room_button = Button(room_subwin, text='SELECT',anchor='center',font=("Ariel", 12,'bold'), bg='white',fg='#88C1C2', relief='ridge',
-        activebackground='#88C1C2', activeforeground='white', command=lambda: room_select(room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry))
+        activebackground='#88C1C2', activeforeground='white', command=lambda: room_select(room_list, room_tree, entry_frame, id_entry, type_entry, price_entry, description_entry))
     select_room_button.place(x=fulwidth/2+50, y=fulheight-75-85, width=150, height=50)
     changeColor(select_room_button, "#c5ede2", "white")
 

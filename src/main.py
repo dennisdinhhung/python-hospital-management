@@ -75,10 +75,10 @@ def create_window(new_window):
     new_window.maxsize(1000, 800)
     new_window.title("Hospital Infolmation Management System")
     new_window.config(bg="#319997")
-    icon = PhotoImage(file="images\Hospital_icon2.png")
+    icon = PhotoImage(file="images\Menu_icon.png")
     new_window.iconphoto(False, icon)
 
-    with Image.open("images\Hospital_icon2.png") as img:
+    with Image.open("images\Menu_icon.png") as img:
         Hos_icon = ImageTk.PhotoImage(img.resize((144,144)))
     
     Frame(new_window, bg="#7C809B").place(x = 20, y = 20, width = 1000-40, height = 800-40)
@@ -125,9 +125,9 @@ def create_window(new_window):
     changeColor(employee_button, "#53cbdb", "#88C1C2")
     changeColor(patients_button, "#53cbdb", "#88C1C2")
     changeColor(room_button, "#53cbdb", "#88C1C2")
-#     window.withdraw()
-#     new_window.deiconify()
-#     new_window.protocol('WM_DELETE_WINDOW', lambda: on_exit(window))
+    # window.withdraw()
+    # new_window.deiconify()
+    # new_window.protocol('WM_DELETE_WINDOW', lambda: on_exit(window))
 
     
     
@@ -141,10 +141,10 @@ window.maxsize(1200, 800)
 
 window.title("Hospital Infolmation Management System")
 window.config(bg="#393b3a")
-icon = PhotoImage(file="C:\\Users\\dang1\\Desktop\\Code\\OOP\\python-hospital-management\\src\\images\Hospital_icon2.png")
+icon = PhotoImage(file="images\Hospital_icon2.png")
 window.iconphoto(False, icon)
 
-with Image.open("C:\\Users\\dang1\\Desktop\\Code\\OOP\\python-hospital-management\\src\\images\Hospital.png") as img:
+with Image.open("images\Hospital_icon2.png") as img:
     Hos_Image = ImageTk.PhotoImage(img.resize((600,600)))
 
 

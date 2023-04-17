@@ -1,7 +1,7 @@
 class Room():
-    def __init__(self, id, name, price):
+    def __init__(self, id, type, price):
         self.id = id
-        self.name = name
+        self.type = type
         self.price = price
         # self.stock = 0
         self.description = ""
@@ -10,8 +10,8 @@ class Room():
     def get_id(self):
         return self.id
 
-    def get_name(self):
-        return self.name
+    def get_type(self):
+        return self.type
 
     def get_price(self):
          return self.price
@@ -26,8 +26,8 @@ class Room():
     def set_id(self, id):
         self.id = id
 
-    def set_name(self, name):
-        self.name = name
+    def set_type(self, type):
+        self.type = type
 
     def set_price(self, price):
          self.price = price

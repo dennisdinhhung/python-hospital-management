@@ -207,7 +207,7 @@ def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
         if len(id) == 0:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
-        elif utils.invalid_id(id, "W-") == 1:
+        elif utils.invalid_id(id, "E-") == 1:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
         else:
@@ -354,7 +354,7 @@ def emp_press(window, fulwidth, fulheight, employee_list):
     entry_frame.place(x=50, y=100, width=fulwidth/2-100, height=fulheight/2)
     Frame(emp_subwin, bg='crimson').place(x=50, y=350, width=fulwidth/2-100, height=2)
     Label(emp_subwin, text=' Entries marked with " * " must not be empty ', anchor='w', bg='#88C1C2', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=360, height=30)
-    Label(emp_subwin, text=' ID must be " W-xxx " ', anchor='w', bg='#88C1C2', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=385, height=30)
+    Label(emp_subwin, text=' ID must be " E-xxx " ', anchor='w', bg='#88C1C2', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=385, height=30)
     Label(emp_subwin, text=' Gender must be " M " or " F " ', anchor='w', bg='#88C1C2', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=410, height=30)
     Label(emp_subwin, text=' Date of Birth must be " dd/mm/yyyy " ', anchor='w', bg='#88C1C2', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=435, height=30)
     Label(emp_subwin, text=' Phone & Salary must be numbers ', anchor='w', bg='#88C1C2', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=460, height=30)
