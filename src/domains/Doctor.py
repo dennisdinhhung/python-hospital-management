@@ -1,4 +1,4 @@
-from Employee import Employee
+from domains.Employee import Employee
 
 class Doctor(Employee):
     def __init__(self, id, name, gender, dob):

@@ -1,7 +1,7 @@
 from domains.Patient import Patient
-from src.domains.Person import *
-from src.domains.classConnection import *
-from src.domains.Room import *
+from domains.Person import *
+from domains.classConnection import *
+from domains.Room import *
 from tkinter import *
 from tkinter import ttk
 from tk import *
@@ -316,7 +316,7 @@ def doctors_assignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_doc_list, d
     if selected_patient != -1:    
         patda_subwin = Toplevel(pat_subwin)
         patda_subwin.geometry("%dx%d" % (fulwidth, fulheight))
-        icon = PhotoImage(file = "images/HIMS Icon.png")
+        icon = PhotoImage(file = "images/Hospital_icon.png")
         patda_subwin.iconphoto(False, icon)
         patda_subwin.title("Doctors Assignment")
         Frame(patda_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
@@ -486,7 +486,7 @@ def room_asignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_room_list, room
     if selected_patient != -1:    
         patma_subwin = Toplevel(pat_subwin)
         patma_subwin.geometry("%dx%d" % (fulwidth, fulheight))
-        icon = PhotoImage(file = "images/HIMS Icon.png")
+        icon = PhotoImage(file = "images/Hospital_icon.png")
         patma_subwin.iconphoto(False, icon)
         patma_subwin.title("Rooms Assignment")
         Frame(patma_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
@@ -649,7 +649,7 @@ def pat_press(window, fulwidth, fulheight, doctors_list, patients_list, room_lis
 
     pat_subwin = Toplevel(window)
     pat_subwin.geometry("%dx%d" % (fulwidth, fulheight))
-    icon = PhotoImage(file = "images/HIMS Icon.png")
+    icon = PhotoImage(file = "images/Hospital_icon.png")
     pat_subwin.iconphoto(False, icon)
     pat_subwin.title("Patients Information Management")
     Frame(pat_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)

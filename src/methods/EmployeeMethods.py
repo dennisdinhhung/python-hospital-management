@@ -1,5 +1,6 @@
-from src.domains.Person import *
-from src.domains.classConnection import *
+from domains.Person import *
+from domains.classConnection import *
+from domains.Employee import *
 from tkinter import *
 from tkinter import ttk
 from tk import *
@@ -30,7 +31,7 @@ def clear_entry(entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_
     global selected_employee
     selected_employee = -1
     
-def emp_add(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
+def emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
     Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
     Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
@@ -60,7 +61,7 @@ def emp_add(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_en
         Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     else:
-        for employee in employees_list:
+        for employee in employee_list:
             if employee.get_id() == id:
                 Label(entry_frame, bg='#ceede8', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
                 valid_check += 1
@@ -100,17 +101,17 @@ def emp_add(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_en
 
     # If All Valid
     if valid_check == 0:
-        # Add to employees_list
-        new_wor = employee(id, name, gend, dob)
+        # Add to employee_list
+        new_emp = Employee(id, name, gend, dob)
         if len(phone) > 0:
-            new_wor.set_phone(phone)
+            new_emp.set_phone(phone)
         if len(email) > 0:
-            new_wor.set_email(email)
+            new_emp.set_email(email)
         if len(dept) > 0:
-            new_wor.set_dept(dept)
+            new_emp.set_dept(dept)
         if len(salary) > 0:
-            new_wor.set_salary(salary)
-        employees_list.append(new_wor)
+            new_emp.set_salary(salary)
+        employee_list.append(new_emp)
 
         # Display on Treeview
         emp_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, name, gend, dob))
@@ -125,22 +126,22 @@ def emp_add(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_en
         dept_entry.delete(0, END)
         salary_entry.delete(0, END)
 
-def emp_remove(employees_list, emp_tree):
+def emp_remove(employee_list, emp_tree):
     if len(emp_tree.selection())>0:
-        selected_wor = emp_tree.selection()[0]
-        employee_id = emp_tree.item(selected_wor, 'values')[0]
-        for employee in employees_list:
+        selected_emp = emp_tree.selection()[0]
+        employee_id = emp_tree.item(selected_emp, 'values')[0]
+        for employee in employee_list:
             if employee.get_id()== employee_id:
-                employees_list.remove(employee)
+                employee_list.remove(employee)
                 break
-        emp_tree.delete(selected_wor)
+        emp_tree.delete(selected_emp)
 
-def all_emp_remove(emp_tree, employees_list):
+def all_emp_remove(emp_tree, employee_list):
     for emp in emp_tree.get_children():
         emp_tree.delete(emp)
-    employees_list.clear()
+    employee_list.clear()
 
-def emp_select(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
+def emp_select(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     # Delete all Warnings
     Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
     Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
@@ -166,7 +167,7 @@ def emp_select(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend
         global selected_employee
         selected_employee = emp_tree.selection()[0]
         emp_id = emp_tree.item(selected_employee, 'values')[0]
-        for employee in employees_list:
+        for employee in employee_list:
             if employee.get_id()== emp_id:
                 id_entry.insert(0, employee.get_id())
                 name_entry.insert(0, employee.get_name())
@@ -178,7 +179,7 @@ def emp_select(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend
                 salary_entry.insert(0, employee.get_salary())
                 break
 
-def emp_update(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
+def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     global selected_employee
     if selected_employee != -1:
         Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
@@ -212,7 +213,7 @@ def emp_update(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend
         else:
             # check if new id is different from old id, if yes, check for duplication
             if id != emp_tree.item(selected_employee, 'values')[0]:
-                for employee in employees_list:
+                for employee in employee_list:
                     if employee.get_id() == id:
                         Label(entry_frame, bg='#ceede8', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
                         valid_check += 1
@@ -252,7 +253,7 @@ def emp_update(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend
 
         # If All Valid
         if valid_check == 0:
-            for employee in employees_list:
+            for employee in employee_list:
                 if employee.get_id() == emp_tree.item(selected_employee, 'values')[0]:
                     employee.set_id(id)
                     employee.set_name(name)
@@ -287,13 +288,13 @@ def emp_update(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend
             dept_entry.delete(0, END)
             salary_entry.delete(0, END)
 
-def emp_press(window, fulwidth, fulheight, employees_list):
+def emp_press(window, fulwidth, fulheight, employee_list):
     global selected_employee
     selected_employee = -1
 
     emp_subwin = Toplevel(window)
     emp_subwin.geometry("%dx%d" % (fulwidth, fulheight))
-    icon = PhotoImage(file = "images/HIMS Icon.png")
+    icon = PhotoImage(file = "images/Hospital_icon.png")
     emp_subwin.iconphoto(False, icon)
     emp_subwin.title("Emplyees Information Management")
     Frame(emp_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
@@ -328,15 +329,15 @@ def emp_press(window, fulwidth, fulheight, employees_list):
 
     # Create Headings
     emp_tree.heading("#0", text="")
-    emp_tree.heading("ID", text="ID", anchor='center', command= lambda: utils.sort_people_list_by_column(emp_tree, employees_list, "ID", False))
-    emp_tree.heading("Name", text="Name", anchor='center', command= lambda: utils.sort_people_list_by_column(emp_tree, employees_list, "Name", False))
-    emp_tree.heading("Gender", text="Gender", anchor='center', command= lambda: utils.sort_people_list_by_column(emp_tree, employees_list, "Gender", False))
-    emp_tree.heading("Date of Birth", text="Date of Birth", anchor='center', command= lambda: utils.sort_people_list_by_column(emp_tree, employees_list, "Date of Birth", False))
+    emp_tree.heading("ID", text="ID", anchor='center', command= lambda: utils.sort_people_list_by_column(emp_tree, employee_list, "ID", False))
+    emp_tree.heading("Name", text="Name", anchor='center', command= lambda: utils.sort_people_list_by_column(emp_tree, employee_list, "Name", False))
+    emp_tree.heading("Gender", text="Gender", anchor='center', command= lambda: utils.sort_people_list_by_column(emp_tree, employee_list, "Gender", False))
+    emp_tree.heading("Date of Birth", text="Date of Birth", anchor='center', command= lambda: utils.sort_people_list_by_column(emp_tree, employee_list, "Date of Birth", False))
 
     emp_tree.bind('<Motion>', 'break')
     
     # Insert Data
-    for employee in employees_list:
+    for employee in employee_list:
         emp_tree.insert(parent='', index = 'end', iid=employee.get_id(), text='', values=(employee.get_id(), employee.get_name(), employee.get_gend(), employee.get_dob()))
         
     emp_tree.place(x=fulwidth/2+50, y=50, height=fulheight-250, width=fulwidth/2-100)
@@ -428,11 +429,11 @@ def emp_press(window, fulwidth, fulheight, employees_list):
 
     # Buttons
     add_employee_button = Button(emp_subwin, text='ADD EMPLOYEE',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
-        activebackground='dark blue', activeforeground='white', command=lambda: emp_add(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
+        activebackground='dark blue', activeforeground='white', command=lambda: emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
     add_employee_button.place(x=50, y=fulheight-75-85-10-50, width=250, height=50)
 
     update_employee_button = Button(emp_subwin, text='UPDATE',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
-        activebackground='dark blue', activeforeground='white', command=lambda: emp_update(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
+        activebackground='dark blue', activeforeground='white', command=lambda: emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
     update_employee_button.place(x=300, y=fulheight-75-85-10-50, width=250, height=50)
 
     clear_button = Button(emp_subwin, text='CLEAR',anchor='center',font=("Work Sans", 12,'bold'), fg='red', relief='ridge',
@@ -440,13 +441,13 @@ def emp_press(window, fulwidth, fulheight, employees_list):
     clear_button.place(x=50, y=fulheight-75-85-10, width=500, height=50)
 
     remove_employee_button = Button(emp_subwin, text='REMOVE SELECTED',anchor='center',font=("Work Sans", 12,'bold'),bg='red', fg='white', relief='ridge',
-        activebackground='crimson', activeforeground='white', command=lambda: emp_remove(employees_list, emp_tree))
+        activebackground='crimson', activeforeground='white', command=lambda: emp_remove(employee_list, emp_tree))
     remove_employee_button.place(x=fulwidth/4*3-100, y=fulheight-75-85, width=200, height=50)
 
     remove_all_employee_button = Button(emp_subwin, text='REMOVE ALL',anchor='center',font=("Work Sans", 12,'bold'),bg='red', fg='white', relief='ridge',
-        activebackground='crimson', activeforeground='white', command=lambda: all_emp_remove(emp_tree, employees_list))
+        activebackground='crimson', activeforeground='white', command=lambda: all_emp_remove(emp_tree, employee_list))
     remove_all_employee_button.place(x=fulwidth-50-150, y=fulheight-75-85, width=150, height=50)
 
     select_employee_button = Button(emp_subwin, text='SELECT',anchor='center',font=("Work Sans", 12,'bold'), bg='#ceede8',fg='white', relief='ridge',
-        activebackground='dark blue', activeforeground='white', command=lambda: emp_select(employees_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
+        activebackground='dark blue', activeforeground='white', command=lambda: emp_select(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
     select_employee_button.place(x=fulwidth/2+50, y=fulheight-75-85, width=150, height=50)

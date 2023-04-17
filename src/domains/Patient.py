@@ -1,4 +1,4 @@
-from Person import Person
+from domains.Person import Person
 
 class Patient(Person):
     def __init__(self, id, name, gender, dob):

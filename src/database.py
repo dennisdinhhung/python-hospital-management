@@ -2,44 +2,45 @@ import pickle
 import os
 import zipfile
 
+
 def save_doctors(doctors_list):
     with open("doctors.pkl", "wb") as f:
         pickle.dump(doctors_list, f, pickle.HIGHEST_PROTOCOL)
 
 def save_employee(employee_list):
-    with open("workers.pkl", "wb") as f:
+    with open("employee.pkl", "wb") as f:
         pickle.dump(employee_list, f, pickle.HIGHEST_PROTOCOL)
 
 def save_patients(patients_list):
     with open("patients.pkl", "wb") as f:
         pickle.dump(patients_list, f, pickle.HIGHEST_PROTOCOL)
-        
-def save_medicines(medicines_list):
-    with open("medicines.pkl", "wb") as f:
-        pickle.dump(medicines_list, f, pickle.HIGHEST_PROTOCOL)
+
+def save_room(room_list):
+    with open("room.pkl", "wb") as f:
+        pickle.dump(room_list, f, pickle.HIGHEST_PROTOCOL)
 
 def save_pa_doc(pa_doc_list):
     with open("pa_doc.pkl", "wb") as f:
         pickle.dump(pa_doc_list, f, pickle.HIGHEST_PROTOCOL)
 
-# def save_pa_med(pa_med_list):
-#     with open("pa_med.pkl", "wb") as f:
-#         pickle.dump(pa_med_list, f, pickle.HIGHEST_PROTOCOL)
+def save_pa_room(pa_room_list):
+    with open("pa_room.pkl", "wb") as f:
+        pickle.dump(pa_room_list, f, pickle.HIGHEST_PROTOCOL)
 
 def zip_data():
-    with zipfile.ZipFile('hospital.dat', 'w', compression = zipfile.ZIP_DEFLATED) as zip:        
+    with zipfile.ZipFile('hospital.dat', 'w', compression=zipfile.ZIP_DEFLATED) as zip:        
         zip.write('doctors.pkl')
         zip.write('employee.pkl')
         zip.write('patients.pkl')
-        zip.write('medicines.pkl')
+        zip.write('room.pkl')
         zip.write('pa_doc.pkl')
-        # zip.write('pa_med.pkl')
+        zip.write('pa_room.pkl')
     os.remove('doctors.pkl')
     os.remove('employee.pkl')
     os.remove('patients.pkl')
-    os.remove('medicines.pkl')
+    os.remove('room.pkl')
     os.remove('pa_doc.pkl')
-    # os.remove('pa_med.pkl')
+    os.remove('pa_room.pkl')
 
 #===========================================================================
 
@@ -67,13 +68,13 @@ def load_patients():
 
     return (patients_list)
 
-# def load_medicines():
-#     medicines_list = []
-#     if(os.path.exists("medicines.pkl")):
-#         with open("medicines.pkl", "rb") as f:
-#             medicines_list = pickle.load(f)
+def load_room():
+    room_list = []
+    if(os.path.exists("room.pkl")):
+        with open("room.pkl", "rb") as f:
+            room_list = pickle.load(f)
 
-#     return (medicines_list)
+    return (room_list)
 
 def load_pa_doc():
     pa_doc_list = []
@@ -83,13 +84,13 @@ def load_pa_doc():
 
     return (pa_doc_list)
 
-# def load_pa_med():
-#     pa_med_list = []
-#     if(os.path.exists("pa_med.pkl")):
-#         with open("pa_med.pkl", "rb") as f:
-#             pa_med_list = pickle.load(f)
+def load_pa_room():
+    pa_room_list = []
+    if(os.path.exists("pa_room.pkl")):
+        with open("pa_room.pkl", "rb") as f:
+            pa_room_list = pickle.load(f)
 
-#     return (pa_med_list)
+    return (pa_room_list)
 
 def unzip_data():
     if os.path.exists('hospital.dat'):

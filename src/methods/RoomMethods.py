@@ -1,6 +1,6 @@
-from src.domains.Person import *
-from src.domains.classConnection import *
-from src.domains.Room import *
+from domains.Person import *
+from domains.classConnection import *
+from domains.Room import *
 from tkinter import *
 from tkinter import ttk
 from tk import *
@@ -173,7 +173,7 @@ def patients_assignment(room_subwin, room_tree, fulwidth, fulheight, pa_room_lis
     if selected_room != -1:    
         roompa_subwin = Toplevel(room_subwin)
         roompa_subwin.geometry("%dx%d" % (fulwidth, fulheight))
-        icon = PhotoImage(file = "images/HIMS Icon.png")
+        icon = PhotoImage(file = "images/Hospital_icon.png")
         roompa_subwin.iconphoto(False, icon)
         roompa_subwin.title("room _ Patients Assignment")
         Frame(roompa_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
@@ -341,7 +341,7 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
 
     room_subwin = Toplevel(window)
     room_subwin.geometry("%dx%d" % (fulwidth, fulheight))
-    icon = PhotoImage(file = "images/HIMS Icon.png")
+    icon = PhotoImage(file = "images/Hospital_icon.png")
     room_subwin.iconphoto(False, icon)
     room_subwin.title("room Information Management")
     Frame(room_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
