@@ -84,3 +84,43 @@ def invalid_price(price):
             else: return 1
         except ValueError:
             return 1
+        
+def sort_people_list_by_column(treeview, arr, col, reverse):
+    if(col == "ID"):
+        arr.sort(key=lambda x: x.get_id(),reverse=reverse)
+    if(col == "Name"):
+        arr.sort(key=lambda x: x.get_name(),reverse=reverse)
+    if(col == "Gender"):
+        arr.sort(key=lambda x: x.get_gend(),reverse=reverse)
+    if(col == "Date of Birth"):
+        arr.sort(key=lambda x: datetime.datetime.strptime(x.get_dob(), '%d/%m/%Y'),reverse=reverse)
+    for i in treeview.get_children():
+        treeview.delete(i)
+    a_count = 0
+    for element in arr:
+        treeview.insert(parent='', index = 'end', iid=a_count, text='', values=(
+            element.get_id(), element.get_name(), element.get_gend(), element.get_dob())
+        )
+        a_count += 1
+
+    treeview.heading(col, text=col, command=lambda _col=col: \
+                 sort_people_list_by_column(treeview, arr, _col, not reverse))
+
+def sort_room_list_by_column(treeview, arr,col, reverse):
+    if(col == "ID"):
+        arr.sort(key=lambda x: x.get_id(),reverse=reverse)
+    if(col == "Name"):
+        arr.sort(key=lambda x: x.get_name(),reverse=reverse)
+    if(col == "Price"):
+        arr.sort(key=lambda x: str(x.get_stock()),reverse=reverse)
+    for i in treeview.get_children():
+        treeview.delete(i)
+    a_count = 0
+    for element in arr:
+        treeview.insert(parent='', index = 'end', iid=a_count, text='', values=(
+            element.get_id(), element.get_name(), element.get_price(), element.get_stock())
+        )
+        a_count += 1
+
+    treeview.heading(col, text=col, command=lambda _col=col: \
+                 sort_room_list_by_column(treeview, arr, _col, not reverse))

@@ -6,32 +6,32 @@ from tkinter import ttk
 from tk import *
 import utils
 
-def clear_entry(entry_frame, id_entry, name_entry, description_entry):
+def clear_entry(entry_frame, id_entry, name_entry, price_entry, description_entry):
     # Delete all Warnings
-    Label(entry_frame, bg='#ceede8', fg='white', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                                  ', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=2,sticky='w')
 
     # Empty Entry boxes
     id_entry.delete(0, END)
     name_entry.delete(0, END)
+    price_entry.delete(0, END)
     description_entry.delete('1.0', END)
 
     # Set selected_patient to -1
     global selected_room
     selected_room = -1
 
-def room_add(room_list, room_tree, entry_frame, id_entry, name_entry, description_entry):
+def room_add(room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry):
     # Delete all Warnings
-    Label(entry_frame, bg='#ceede8', fg='white', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                                  ', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=2,sticky='w')
 
     # Read Inputs
     id = id_entry.get()
     name = name_entry.get()
+    price = price_entry.get()
     description = description_entry.get("1.0",'end-1c')
 
     # Validation
@@ -39,30 +39,47 @@ def room_add(room_list, room_tree, entry_frame, id_entry, name_entry, descriptio
 
     # Validate ID
     if len(id) == 0:
-        Label(entry_frame, bg='#ceede8', fg='white', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='deep sky blue', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     elif utils.invalid_id(id, "M-") == 1:
-        Label(entry_frame, bg='#ceede8', fg='white', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='deep sky blue', fg='crimson', text='INVALID', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     else:
         for room in room_list:
             if room.get_id() == id:
-                Label(entry_frame, bg='#ceede8', fg='white', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+                Label(entry_frame, bg='deep sky blue', fg='crimson', text='ID already exist', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
                 valid_check += 1
                 break
 
     # Validate Name
     if len(name) == 0:
-        Label(entry_frame, bg='#ceede8', fg='white', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+        Label(entry_frame, bg='deep sky blue', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
         valid_check += 1
 
+    # Validate Price
+    if len(price) == 0:
+        Label(entry_frame, bg='deep sky blue', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        valid_check += 1
+    elif utils.invalid_price(price) == 1:
+        Label(entry_frame, bg='deep sky blue', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        valid_check += 1
+
+    # If ALL valid:
+    if valid_check == 0:
+        # Add to room_list:
+        new_room = Room(id,name,price)
+        if len(description)>0:
+            new_room.set_description(description)
+        room_list.append(new_room)
 
         # Display on Treeview
-        room_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, name))
+        room_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, name, price))
+
 
         # Empty Entry boxes
         id_entry.delete(0, END)
         name_entry.delete(0, END)
+        price_entry.delete(0, END)
         description_entry.delete('1.0', END)
 
 def room_remove(room_list, room_tree, pa_room_list):
@@ -71,7 +88,7 @@ def room_remove(room_list, room_tree, pa_room_list):
         room_id = room_tree.item(selected_room, 'values')[0]
 
         for relation in pa_room_list:
-            if relation.get_roomID() == room_id:
+            if relation.get_RoomID() == room_id:
                 pa_room_list.remove(relation)
 
         for room in room_list:
@@ -87,16 +104,16 @@ def all_room_remove(room_tree, room_list, pa_room_list):
     pa_room_list.clear()
     room_list.clear()
 
-def room_select(room_list, room_tree, entry_frame, id_entry, name_entry, description_entry):
+def room_select(room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry):
     # Delete all Warnings
-    Label(entry_frame, bg='#ceede8', fg='white', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                                  ', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='deep sky blue', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=2,sticky='w')
 
     # Empty Entry boxes
     id_entry.delete(0, END)
     name_entry.delete(0, END)
+    price_entry.delete(0, END)
     description_entry.delete('1.0', END)
 
     # Show Selected Patient Info
@@ -109,21 +126,22 @@ def room_select(room_list, room_tree, entry_frame, id_entry, name_entry, descrip
             if room.get_id()== room_id:
                 id_entry.insert(0, room.get_id())
                 name_entry.insert(0, room.get_name())
+                price_entry.insert(0, room.get_price())
                 description_entry.insert('0.1', room.get_description())
                 break
 
-def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_entry, description_entry):
+def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry):
     global selected_room
     if selected_room != -1:
         # Delete all Warnings
-        Label(entry_frame, bg='#ceede8', fg='white', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='white', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+        Label(entry_frame, bg='deep sky blue', fg='crimson', text='                                  ', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='deep sky blue', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
+        Label(entry_frame, bg='deep sky blue', fg='crimson', text='                   ', font=("Ariel", 14, 'bold')).grid(column=6,row=2,sticky='w')
 
         # Read Inputs
         id = id_entry.get()
         name = name_entry.get()
+        price = price_entry.get()
         description = description_entry.get("1.0",'end-1c')
 
         # Validation
@@ -131,42 +149,51 @@ def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_
 
         # Validate ID
         if len(id) == 0:
-            Label(entry_frame, bg='#ceede8', fg='white', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+            Label(entry_frame, bg='deep sky blue', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
         elif utils.invalid_id(id, "M-") == 1:
-            Label(entry_frame, bg='#ceede8', fg='white', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+            Label(entry_frame, bg='deep sky blue', fg='crimson', text='INVALID', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
         else:
             if id != room_tree.item(selected_room, 'values')[0]:
                 for room in room_list:
                     if room.get_id() == id:
-                        Label(entry_frame, bg='#ceede8', fg='white', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+                        Label(entry_frame, bg='deep sky blue', fg='crimson', text='ID already exist', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
                         valid_check += 1
                         break
 
         # Validate Name
         if len(name) == 0:
-            Label(entry_frame, bg='#ceede8', fg='white', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+            Label(entry_frame, bg='deep sky blue', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=1,sticky='w')
             valid_check += 1
 
- 
+        # Validate Price
+        if len(price) == 0:
+            Label(entry_frame, bg='deep sky blue', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=2,sticky='w')
+            valid_check += 1
+        elif utils.invalid_price(price) == 1:
+            Label(entry_frame, bg='deep sky blue', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=2,sticky='w')
+            valid_check += 1
+
         # If ALL Valid
         if valid_check == 0:
             for room in room_list:
                 if room.get_id() == room_tree.item(selected_room, 'values')[0]:
                     room.set_id(id)
                     room.set_name(name)
+                    room.set_price(price)
                     room.set_description(description)
             for relation in pa_room_list:
-                if relation.get_roomID() == room_tree.item(selected_room, 'values')[0]:
-                    relation.set_roomID(id)
+                if relation.get_RoomID() == room_tree.item(selected_room, 'values')[0]:
+                    relation.set_RoomID(id)
 
-            room_tree.item(selected_room, text="", values = (id, name))
+            room_tree.item(selected_room, text="", values = (id, name, price))
             selected_room = -1
 
             # Empty Entry boxes
             id_entry.delete(0, END)
             name_entry.delete(0, END)
+            price_entry.delete(0, END)
             description_entry.delete('1.0', END)
 
 def patients_assignment(room_subwin, room_tree, fulwidth, fulheight, pa_room_list, patients_list, assigned_patients_list, unassigned_patients_list):
@@ -175,10 +202,10 @@ def patients_assignment(room_subwin, room_tree, fulwidth, fulheight, pa_room_lis
         roompa_subwin.geometry("%dx%d" % (fulwidth, fulheight))
         icon = PhotoImage(file = "images/Hospital_icon.png")
         roompa_subwin.iconphoto(False, icon)
-        roompa_subwin.title("room _ Patients Assignment")
-        Frame(roompa_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
-        Label(roompa_subwin, text='ASSIGNED PATIENTS', bg='#ceede8', fg='white', font=("Work Sans", 20, 'bold')).place(x=50,y=50,width=fulwidth/2-100,height=50)
-        Label(roompa_subwin, text='UNASSIGNED PATIENTS', fg='#ceede8', font=("Work Sans", 20, 'bold')).place(x=fulwidth/2+50,y=50,width=fulwidth/2-100,height=50)
+        roompa_subwin.title("Room _ Patients Assignment")
+        Frame(roompa_subwin, bg='deep sky blue').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
+        Label(roompa_subwin, text='ASSIGNED PATIENTS', bg='deep sky blue', fg='white', font=("Ariel", 20, 'bold')).place(x=50,y=50,width=fulwidth/2-100,height=50)
+        Label(roompa_subwin, text='UNASSIGNED PATIENTS', fg='deep sky blue', font=("Ariel", 20, 'bold')).place(x=fulwidth/2+50,y=50,width=fulwidth/2-100,height=50)
 
         # Create list of assigned and unassigned patients for selected doctor
         assigned_patients_list.clear()
@@ -187,7 +214,7 @@ def patients_assignment(room_subwin, room_tree, fulwidth, fulheight, pa_room_lis
         room_id = room_tree.item(selected_room, 'values')[0]
         temp_list = []
         for relation in pa_room_list:
-            if relation.get_roomID() == room_id:
+            if relation.get_RoomID() == room_id:
                 temp_list.append(relation)
         for patient in patients_list:
             check = 0
@@ -228,7 +255,7 @@ def patients_assignment(room_subwin, room_tree, fulwidth, fulheight, pa_room_lis
         global unassigned_patients_count
         unassigned_patients_count = 0
         for patient in unassigned_patients_list:
-            unassigned_patients_tree.insert(parent='', index = 'end', iid=patient.get_id(), text='', values=(patient.get_id(), patient.get_name(), patient.get_gend(), patient.get_dob()))
+            unassigned_patients_tree.insert(parent='', index = 'end', iid=patient.get_id(), text='', values=(patient.get_id(), patient.get_name(), patient.get_gender(), patient.get_dob()))
             unassigned_patients_count += 1
 
         unassigned_patients_tree.place(x=fulwidth/2+50, y=100, height=fulheight-300, width=fulwidth/2-100)
@@ -260,22 +287,22 @@ def patients_assignment(room_subwin, room_tree, fulwidth, fulheight, pa_room_lis
         global assigned_patients_count
         assigned_patients_count = 0
         for patient in assigned_patients_list:
-            assigned_patients_tree.insert(parent='', index = 'end', iid=patient.get_id(), text='', values=(patient.get_id(), patient.get_name(), patient.get_gend(), patient.get_dob()))
+            assigned_patients_tree.insert(parent='', index = 'end', iid=patient.get_id(), text='', values=(patient.get_id(), patient.get_name(), patient.get_gender(), patient.get_dob()))
             assigned_patients_count += 1
 
         assigned_patients_tree.place(x=50, y=100, height=fulheight-300, width=fulwidth/2-100)
 
         # ===============================================================================
 
-        Label(roompa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#ceede8', fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
-        Label(roompa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
+        Label(roompa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='deep sky blue', fg='black', font=("Ariel", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
+        Label(roompa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Ariel", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
 
         # Buttons
-        assign_patient_button = Button(roompa_subwin, text='ASSIGN PATIENT', font=("Work Sans", 16, 'bold'), fg='white', bg='#ceede8', relief='ridge',
+        assign_patient_button = Button(roompa_subwin, text='ASSIGN PATIENT', font=("Ariel", 16, 'bold'), fg='white', bg='deep sky blue', relief='ridge',
             activebackground='dark blue', activeforeground='white', command=lambda: assign_patient(roompa_subwin, fulwidth, fulheight, assigned_patients_tree, unassigned_patients_tree, assigned_patients_list, unassigned_patients_list, patients_list, room_id, pa_room_list))
         assign_patient_button.place(x=fulwidth/2+50, y=fulheight-150, width=250, height=50)
 
-        unassign_patient_button = Button(roompa_subwin, text='UNASSIGN PATIENT', font=("Work Sans", 16, 'bold'), fg='#ceede8', relief='ridge',
+        unassign_patient_button = Button(roompa_subwin, text='UNASSIGN PATIENT', font=("Ariel", 16, 'bold'), fg='deep sky blue', relief='ridge',
             activebackground='dark blue', activeforeground='white', command=lambda: unassign_patient(roompa_subwin, fulwidth, fulheight, assigned_patients_tree, unassigned_patients_tree, assigned_patients_list, unassigned_patients_list, patients_list, room_id, pa_room_list))
         unassign_patient_button.place(x=50, y=fulheight-150, width=250, height=50)
 
@@ -302,8 +329,8 @@ def assign_patient(roompa_subwin, fulwidth, fulheight, assigned_patients_tree, u
                 break
         unassigned_patients_count -= 1
         assigned_patients_count += 1
-        Label(roompa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#ceede8', fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
-        Label(roompa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
+        Label(roompa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='deep sky blue', fg='black', font=("Ariel", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
+        Label(roompa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Ariel", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
 
 def unassign_patient(roompa_subwin, fulwidth, fulheight, assigned_patients_tree, unassigned_patients_tree, assigned_patients_list, unassigned_patients_list, patients_list, room_id, pa_room_list):
     if len(assigned_patients_tree.selection())>0:
@@ -311,7 +338,7 @@ def unassign_patient(roompa_subwin, fulwidth, fulheight, assigned_patients_tree,
         patient_id = assigned_patients_tree.item(selected_assigned_patient, 'values')[0]
 
         for relation in pa_room_list:
-            if relation.get_PatientID() == patient_id and relation.get_roomID() == room_id:
+            if relation.get_PatientID() == patient_id and relation.get_RoomID() == room_id:
                 pa_room_list.remove(relation)
     
         global unassigned_patients_count
@@ -332,19 +359,19 @@ def unassign_patient(roompa_subwin, fulwidth, fulheight, assigned_patients_tree,
         unassigned_patients_count += 1
         assigned_patients_count -= 1
             
-        Label(roompa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#ceede8', fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
-        Label(roompa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
+        Label(roompa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='deep sky blue', fg='black', font=("Ariel", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
+        Label(roompa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Ariel", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
 
 def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_list):
     global selected_room
     selected_room = -1
 
-    room_subwin = Toplevel(window)
+    room_subwin = Toplevel()
     room_subwin.geometry("%dx%d" % (fulwidth, fulheight))
     icon = PhotoImage(file = "images/Hospital_icon.png")
     room_subwin.iconphoto(False, icon)
-    room_subwin.title("room Information Management")
-    Frame(room_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
+    room_subwin.title("Rooms Information Management")
+    Frame(room_subwin, bg='deep sky blue').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
     
     assigned_patients_list = []
     unassigned_patients_list = []
@@ -352,13 +379,13 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
     style = ttk.Style()
     style.theme_use('clam')
     style.configure("Treeview",
-        background = "white",
+        background = "silver",
         foreground = "black",
         rowheight = 25,
-        font=("Work Sans", 12),
-        fieldbackground = "white"
+        font=("Ariel", 12),
+        fieldbackground = "silver"
         )
-    style.configure("Treeview.Heading", font=("Work Sans", 16,'bold'))
+    style.configure("Treeview.Heading", font=("Ariel", 16,'bold'))
     
     style.map('Treeview', background=[('selected', 'dark blue')])
 
@@ -366,55 +393,56 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
     room_tree = ttk.Treeview(room_subwin, selectmode='browse', show='headings')
 
     # Define columns
-    room_tree['columns'] = ("ID", "Name")
+    room_tree['columns'] = ("ID", "Name", "Price")
 
     # Format columns
     room_tree.column("#0", width=0, stretch=NO)
     room_tree.column("ID", anchor='center', width=75)
     room_tree.column("Name",anchor='w', width=150)
+    room_tree.column("Price",anchor='e', width=100)
 
     # Create Headings
     room_tree.heading("#0", text="")
     room_tree.heading("ID", text="ID", anchor='center', command= lambda: utils.sort_room_list_by_column(room_tree, room_list, "ID", False))
     room_tree.heading("Name", text="Name", anchor='center', command= lambda: utils.sort_room_list_by_column(room_tree, room_list, "Name", False))
+    room_tree.heading("Price", text="Price", anchor='center', command= lambda: utils.sort_room_list_by_column(room_tree, room_list, "Price", False))
 
     room_tree.bind('<Motion>', 'break')
 
     # Insert Data
     for room in room_list:
-        room_tree.insert(parent='', index = 'end', iid=room.get_id(), text='', values=(room.get_id(), room.get_name()))
+        room_tree.insert(parent='', index = 'end', iid=room.get_id(), text='', values=(room.get_id(), room.get_name(), room.get_price()))
         
     room_tree.place(x=fulwidth/2+50, y=50, height=fulheight-250, width=fulwidth/2-100)
 
     #=====================================================================================
-    Label(room_subwin, bg='#ceede8', fg='white', text='room MANAGEMENT', font=("Work Sans", 20, 'bold')).place(x=50, y=25, width=fulwidth/2-100, height=50)
-    Frame(room_subwin, bg='white').place(x=50, y=85, width=fulwidth/2-100, height=2)
-    entry_frame = Frame(room_subwin, bg='#ceede8')
+    Label(room_subwin, bg='deep sky blue', fg='white', text='ROOMS MANAGEMENT', font=("Ariel", 20, 'bold')).place(x=50, y=25, width=fulwidth/2-100, height=50)
+    Frame(room_subwin, bg='crimson').place(x=50, y=85, width=fulwidth/2-100, height=2)
+    entry_frame = Frame(room_subwin, bg='deep sky blue')
     entry_frame.place(x=50, y=100, width=fulwidth/2-100, height=fulheight/2)
-    Frame(room_subwin, bg='white').place(x=50, y=350, width=fulwidth/2-100, height=2)
-    text_frame = Frame(room_subwin, bg='#ceede8')
+    Frame(room_subwin, bg='crimson').place(x=50, y=350, width=fulwidth/2-100, height=2)
+    text_frame = Frame(room_subwin, bg='deep sky blue')
     text_frame.place(x=50, y=fulheight/2-140, width=fulwidth/2-100, height=115)
 
     # Column 0: ( * )
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=0)
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=1)
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=2)
+    Label(entry_frame, bg='deep sky blue', fg='red', text='( * )', font=("Ariel", 14, 'bold')).grid(column=0, row=0)
+    Label(entry_frame, bg='deep sky blue', fg='red', text='( * )', font=("Ariel", 14, 'bold')).grid(column=0, row=1)
+    Label(entry_frame, bg='deep sky blue', fg='red', text='( * )', font=("Ariel", 14, 'bold')).grid(column=0, row=2)
 
     # Column 1: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=3)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=1, row=0)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=1, row=1)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=1, row=2)
 
     # Column 2: Atribute
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - ID - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Name - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=1)
-    
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' - ID - ', font=("Ariel", 14, 'bold')).grid(column=2, row=0)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' - Name - ', font=("Ariel", 14, 'bold')).grid(column=2, row=1)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' - Price - ', font=("Ariel", 14, 'bold')).grid(column=2, row=2)
+
     # Column 3: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=3)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=3, row=0)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=3, row=1)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=3, row=2)
 
     # Column 4: Entries
     id_entry = Entry(entry_frame)
@@ -423,48 +451,49 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
     name_entry = Entry(entry_frame)
     name_entry.grid(column=4,row=1)
 
-
+    price_entry = Entry(entry_frame)
+    price_entry.grid(column=4,row=2)
 
     # Column 5: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=3)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=5, row=0)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=5, row=1)
+    Label(entry_frame, bg='deep sky blue', fg='white', text=' | ', font=("Ariel", 14, 'bold')).grid(column=5, row=2)
 
     # Description
-    Label(text_frame, bg='#ceede8', fg='white', text=' - Description - ', font=("Work Sans", 14, 'bold')).grid(column=0, row=0)
+    Label(text_frame, bg='deep sky blue', fg='white', text=' - Description - ', font=("Ariel", 14, 'bold')).grid(column=0, row=0)
     description_entry = Text(text_frame, width=65, height=5)
     description_entry.grid(row=1, column=0, columnspan=5)
 
     #==================================================================================
 
-    Label(room_subwin, text='  - Entries marked with " * " must not be empty ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=360, height=30)
-    Label(room_subwin, text='  - ID must be " M-xxx " ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=385, height=30)
-  
-    add_room_button = Button(room_subwin, text='ADD room',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
-        activebackground='dark blue', activeforeground='white', command=lambda: room_add(room_list, room_tree, entry_frame, id_entry, name_entry, description_entry))
+    Label(room_subwin, text='  - Entries marked with " * " must not be empty ', anchor='w', bg='deep sky blue', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=360, height=30)
+    Label(room_subwin, text='  - ID must be " M-xxx " ', anchor='w', bg='deep sky blue', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=385, height=30)
+    Label(room_subwin, text='  - Price must be a number ', anchor='w', bg='deep sky blue', fg='white', font=("Ariel", 12, 'bold')).place(x=50, y=410, height=30)
+
+    add_room_button = Button(room_subwin, text='ADD ROOM',anchor='center',font=("Ariel", 12,'bold'), fg='deep sky blue', relief='ridge',
+        activebackground='dark blue', activeforeground='white', command=lambda: room_add(room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry))
     add_room_button.place(x=50, y=fulheight-75-85-10-50, width=150, height=50)
 
-    update_room_button = Button(room_subwin, text='UPDATE',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
-        activebackground='dark blue', activeforeground='white', command=lambda: room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_entry, description_entry))
+    update_room_button = Button(room_subwin, text='UPDATE',anchor='center',font=("Ariel", 12,'bold'), fg='deep sky blue', relief='ridge',
+        activebackground='dark blue', activeforeground='white', command=lambda: room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry))
     update_room_button.place(x=fulwidth/2-50-150, y=fulheight-75-85-10-50, width=150, height=50)
 
-    clear_button = Button(room_subwin, text='CLEAR',anchor='center',font=("Work Sans", 12,'bold'), fg='red', relief='ridge',
-        activebackground='dark blue', activeforeground='white', command=lambda: clear_entry(entry_frame, id_entry, name_entry, description_entry))
+    clear_button = Button(room_subwin, text='CLEAR',anchor='center',font=("Ariel", 12,'bold'), fg='red', relief='ridge',
+        activebackground='dark blue', activeforeground='white', command=lambda: clear_entry(entry_frame, id_entry, name_entry, price_entry, description_entry))
     clear_button.place(x=fulwidth/4*1-100, y=fulheight-75-85-10-50, width=200, height=50)
 
-    remove_room_button = Button(room_subwin, text='REMOVE SELECTED',anchor='center',font=("Work Sans", 12,'bold'),bg='red', fg='white', relief='ridge',
-        activebackground='white', activeforeground='white', command=lambda: room_remove(room_list, room_tree, pa_room_list))
+    remove_room_button = Button(room_subwin, text='REMOVE SELECTED',anchor='center',font=("Ariel", 12,'bold'),bg='red', fg='white', relief='ridge',
+        activebackground='crimson', activeforeground='white', command=lambda: room_remove(room_list, room_tree, pa_room_list))
     remove_room_button.place(x=fulwidth/4*3-100, y=fulheight-75-85, width=200, height=50)
 
-    remove_all_room_button = Button(room_subwin, text='REMOVE ALL',anchor='center',font=("Work Sans", 12,'bold'),bg='red', fg='white', relief='ridge',
-        activebackground='white', activeforeground='white', command=lambda: all_room_remove(room_tree, room_list, pa_room_list))
+    remove_all_room_button = Button(room_subwin, text='REMOVE ALL',anchor='center',font=("Ariel", 12,'bold'),bg='red', fg='white', relief='ridge',
+        activebackground='crimson', activeforeground='white', command=lambda: all_room_remove(room_tree, room_list, pa_room_list))
     remove_all_room_button.place(x=fulwidth-50-150, y=fulheight-75-85, width=150, height=50)
 
-    select_room_button = Button(room_subwin, text='SELECT',anchor='center',font=("Work Sans", 12,'bold'), bg='#ceede8',fg='white', relief='ridge',
-        activebackground='dark blue', activeforeground='white', command=lambda: room_select(room_list, room_tree, entry_frame, id_entry, name_entry, description_entry))
+    select_room_button = Button(room_subwin, text='SELECT',anchor='center',font=("Ariel", 12,'bold'), bg='deep sky blue',fg='white', relief='ridge',
+        activebackground='dark blue', activeforeground='white', command=lambda: room_select(room_list, room_tree, entry_frame, id_entry, name_entry, price_entry, description_entry))
     select_room_button.place(x=fulwidth/2+50, y=fulheight-75-85, width=150, height=50)
 
-    patients_assignment_button = Button(room_subwin, text='PATIENTS ASSIGNMENT',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
+    patients_assignment_button = Button(room_subwin, text='PATIENTS ASSIGNMENT',anchor='center',font=("Ariel", 12,'bold'), fg='deep sky blue', relief='ridge',
         activebackground='dark blue', activeforeground='white', command=lambda: patients_assignment(room_subwin, room_tree, fulwidth, fulheight, pa_room_list, patients_list, assigned_patients_list, unassigned_patients_list))
     patients_assignment_button.place(x=50,y=fulheight-75-85, width=fulwidth/2-100, height=50)

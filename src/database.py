@@ -34,13 +34,11 @@ def zip_data():
         zip.write('patients.pkl')
         zip.write('room.pkl')
         zip.write('pa_doc.pkl')
-        zip.write('pa_room.pkl')
     os.remove('doctors.pkl')
     os.remove('employee.pkl')
     os.remove('patients.pkl')
     os.remove('room.pkl')
     os.remove('pa_doc.pkl')
-    os.remove('pa_room.pkl')
 
 #===========================================================================
 

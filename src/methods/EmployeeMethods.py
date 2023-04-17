@@ -8,14 +8,14 @@ import utils
 
 def clear_entry(entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     # Delete all Warnings
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
     
     # Empty Entry boxes
     id_entry.delete(0, END)
@@ -32,14 +32,14 @@ def clear_entry(entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_
     selected_employee = -1
     
 def emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
     
     id = id_entry.get()
     name = name_entry.get()
@@ -55,48 +55,48 @@ def emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_ent
     
     #Validate ID
     if len(id) == 0:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     elif utils.invalid_id(id, "W-") == 1:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     else:
         for employee in employee_list:
             if employee.get_id() == id:
-                Label(entry_frame, bg='#ceede8', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+                Label(entry_frame, bg='#393b3a', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
                 valid_check += 1
                 break
     
     # Validate Name
     if len(name) == 0:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
         valid_check += 1
 
     # Validate Gender
     if len(gend) == 0:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
     elif utils.invalid_gend(gend) == 1:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
 
     # Validate Date of Birth
     if len(dob) == 0:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
         valid_check += 1
     elif utils.invalid_dob(dob) == 1:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
         valid_check += 1
     
     # Validate Phone:
     if len(phone) != 0:
         if utils.invalid_phone(phone) == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
             valid_check += 1
 
     if len(salary) != 0:
         if utils.invalid_salary(salary) == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
             valid_check += 1
 
     # If All Valid
@@ -143,14 +143,14 @@ def all_emp_remove(emp_tree, employee_list):
 
 def emp_select(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     # Delete all Warnings
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
     
     # Empty Entry boxes
     id_entry.delete(0, END)
@@ -171,7 +171,7 @@ def emp_select(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
             if employee.get_id()== emp_id:
                 id_entry.insert(0, employee.get_id())
                 name_entry.insert(0, employee.get_name())
-                gend_entry.insert(0, employee.get_gend())
+                gend_entry.insert(0, employee.get_gender())
                 dob_entry.insert(0, employee.get_dob())
                 phone_entry.insert(0, employee.get_phone())
                 email_entry.insert(0, employee.get_email())
@@ -182,14 +182,14 @@ def emp_select(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
 def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     global selected_employee
     if selected_employee != -1:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
         
         id = id_entry.get()
         name = name_entry.get()
@@ -205,50 +205,50 @@ def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
         
         #Validate ID
         if len(id) == 0:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
         elif utils.invalid_id(id, "W-") == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
         else:
             # check if new id is different from old id, if yes, check for duplication
             if id != emp_tree.item(selected_employee, 'values')[0]:
                 for employee in employee_list:
                     if employee.get_id() == id:
-                        Label(entry_frame, bg='#ceede8', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+                        Label(entry_frame, bg='#393b3a', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
                         valid_check += 1
                         break
         
         # Validate Name
         if len(name) == 0:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
             valid_check += 1
 
         # Validate Gender
         if len(gend) == 0:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
             valid_check += 1
         elif utils.invalid_gend(gend) == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
             valid_check += 1
 
         # Validate Date of Birth
         if len(dob) == 0:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
             valid_check += 1
         elif utils.invalid_dob(dob) == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
             valid_check += 1
         
         # Validate Phone:
         if len(phone) != 0 and phone != '_':
             if utils.invalid_phone(phone) == 1:
-                Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+                Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
                 valid_check += 1
 
         if len(salary) != 0:
             if utils.invalid_salary(salary) == 1:
-                Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+                Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
                 valid_check += 1
 
         # If All Valid
@@ -292,12 +292,12 @@ def emp_press(window, fulwidth, fulheight, employee_list):
     global selected_employee
     selected_employee = -1
 
-    emp_subwin = Toplevel(window)
+    emp_subwin = Toplevel()
     emp_subwin.geometry("%dx%d" % (fulwidth, fulheight))
     icon = PhotoImage(file = "images/Hospital_icon.png")
     emp_subwin.iconphoto(False, icon)
     emp_subwin.title("Emplyees Information Management")
-    Frame(emp_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
+    Frame(emp_subwin, bg='#393b3a').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
     
 
     #=====================================================================================
@@ -338,59 +338,59 @@ def emp_press(window, fulwidth, fulheight, employee_list):
     
     # Insert Data
     for employee in employee_list:
-        emp_tree.insert(parent='', index = 'end', iid=employee.get_id(), text='', values=(employee.get_id(), employee.get_name(), employee.get_gend(), employee.get_dob()))
+        emp_tree.insert(parent='', index = 'end', iid=employee.get_id(), text='', values=(employee.get_id(), employee.get_name(), employee.get_gender(), employee.get_dob()))
         
     emp_tree.place(x=fulwidth/2+50, y=50, height=fulheight-250, width=fulwidth/2-100)
     #=========================================================================================
     
     # Emplyee Control
-    Label(emp_subwin, bg='#ceede8', fg='white', text='EMPLOYEE MANAGEMENT', font=("Work Sans", 20, 'bold')).place(x=50, y=25, width=fulwidth/2-100, height=50)
+    Label(emp_subwin, bg='#393b3a', fg='white', text='EMPLOYEE MANAGEMENT', font=("Work Sans", 20, 'bold')).place(x=50, y=25, width=fulwidth/2-100, height=50)
     Frame(emp_subwin, bg='crimson').place(x=50, y=85, width=fulwidth/2-100, height=2)
-    entry_frame = Frame(emp_subwin, bg='#ceede8')
+    entry_frame = Frame(emp_subwin, bg='#393b3a')
     entry_frame.place(x=50, y=100, width=fulwidth/2-100, height=fulheight/2)
     Frame(emp_subwin, bg='crimson').place(x=50, y=350, width=fulwidth/2-100, height=2)
-    Label(emp_subwin, text=' Entries marked with " * " must not be empty ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=360, height=30)
-    Label(emp_subwin, text=' ID must be " W-xxx " ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=385, height=30)
-    Label(emp_subwin, text=' Gender must be " M " or " F " ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=410, height=30)
-    Label(emp_subwin, text=' Date of Birth must be " dd/mm/yyyy " ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=435, height=30)
-    Label(emp_subwin, text=' Phone & Salary must be numbers ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=460, height=30)
+    Label(emp_subwin, text=' Entries marked with " * " must not be empty ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=360, height=30)
+    Label(emp_subwin, text=' ID must be " W-xxx " ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=385, height=30)
+    Label(emp_subwin, text=' Gender must be " M " or " F " ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=410, height=30)
+    Label(emp_subwin, text=' Date of Birth must be " dd/mm/yyyy " ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=435, height=30)
+    Label(emp_subwin, text=' Phone & Salary must be numbers ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=460, height=30)
 
 
     # Column 0: ( * )
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=0)
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=1)
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=2)
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=3)
+    Label(entry_frame, bg='#393b3a', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=0)
+    Label(entry_frame, bg='#393b3a', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=1)
+    Label(entry_frame, bg='#393b3a', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=2)
+    Label(entry_frame, bg='#393b3a', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=3)
     
     # Column 1: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=3)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=4)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=5)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=6)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=7)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=0)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=1)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=2)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=3)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=4)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=5)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=6)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=7)
 
     # Column 2: Atribute
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - ID - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Name - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Gender - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - DoB - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=3)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Phone - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=4)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Email - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=5)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Dept - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=6)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Salary - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=7)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - ID - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=0)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Name - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=1)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Gender - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=2)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - DoB - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=3)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Phone - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=4)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Email - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=5)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Dept - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=6)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Salary - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=7)
 
     # Column 3: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=3)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=4)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=5)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=6)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=7)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=0)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=1)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=2)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=3)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=4)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=5)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=6)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=7)
     
     # Column 4: Entries
     id_entry = Entry(entry_frame)
@@ -418,21 +418,21 @@ def emp_press(window, fulwidth, fulheight, employee_list):
     salary_entry.grid(column=4,row=7)
 
     # Column 5: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=3)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=4)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=5)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=6)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=7)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=0)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=1)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=2)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=3)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=4)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=5)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=6)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=7)
 
     # Buttons
-    add_employee_button = Button(emp_subwin, text='ADD EMPLOYEE',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
+    add_employee_button = Button(emp_subwin, text='ADD EMPLOYEE',anchor='center',font=("Work Sans", 12,'bold'), fg='#393b3a', relief='ridge',
         activebackground='dark blue', activeforeground='white', command=lambda: emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
     add_employee_button.place(x=50, y=fulheight-75-85-10-50, width=250, height=50)
 
-    update_employee_button = Button(emp_subwin, text='UPDATE',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
+    update_employee_button = Button(emp_subwin, text='UPDATE',anchor='center',font=("Work Sans", 12,'bold'), fg='#393b3a', relief='ridge',
         activebackground='dark blue', activeforeground='white', command=lambda: emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
     update_employee_button.place(x=300, y=fulheight-75-85-10-50, width=250, height=50)
 
@@ -448,6 +448,6 @@ def emp_press(window, fulwidth, fulheight, employee_list):
         activebackground='crimson', activeforeground='white', command=lambda: all_emp_remove(emp_tree, employee_list))
     remove_all_employee_button.place(x=fulwidth-50-150, y=fulheight-75-85, width=150, height=50)
 
-    select_employee_button = Button(emp_subwin, text='SELECT',anchor='center',font=("Work Sans", 12,'bold'), bg='#ceede8',fg='white', relief='ridge',
+    select_employee_button = Button(emp_subwin, text='SELECT',anchor='center',font=("Work Sans", 12,'bold'), bg='#393b3a',fg='white', relief='ridge',
         activebackground='dark blue', activeforeground='white', command=lambda: emp_select(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
     select_employee_button.place(x=fulwidth/2+50, y=fulheight-75-85, width=150, height=50)

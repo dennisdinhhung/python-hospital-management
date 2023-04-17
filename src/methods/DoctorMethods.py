@@ -8,14 +8,14 @@ import utils
 
 def clear_entry(entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     # Delete all Warnings
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
     
     # Empty Entry boxes
     id_entry.delete(0, END)
@@ -32,14 +32,14 @@ def clear_entry(entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_
     selected_doctor = -1
     
 def doc_add(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
     
     id = id_entry.get()
     name = name_entry.get()
@@ -55,48 +55,48 @@ def doc_add(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entr
     
     #Validate ID
     if len(id) == 0:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     elif utils.invalid_id(id, "D-") == 1:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     else:
         for doctor in doctors_list:
             if doctor.get_id() == id:
-                Label(entry_frame, bg='#ceede8', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+                Label(entry_frame, bg='#393b3a', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
                 valid_check += 1
                 break
     
     # Validate Name
     if len(name) == 0:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
         valid_check += 1
 
     # Validate Gender
     if len(gend) == 0:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
     elif utils.invalid_gend(gend) == 1:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
 
     # Validate Date of Birth
     if len(dob) == 0:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
         valid_check += 1
     elif utils.invalid_dob(dob) == 1:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
         valid_check += 1
     
     # Validate Phone:
     if len(phone) != 0:
         if utils.invalid_phone(phone) == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
             valid_check += 1
 
     if len(salary) != 0:
         if utils.invalid_salary(salary) == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
             valid_check += 1
 
     # If All Valid
@@ -148,14 +148,14 @@ def all_doc_remove(doc_tree, doctors_list, pa_doc_list):
 
 def doc_select(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     # Delete all Warnings
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
-    Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
+    Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
     
     # Empty Entry boxes
     id_entry.delete(0, END)
@@ -176,7 +176,7 @@ def doc_select(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_e
             if doctor.get_id()== doc_id:
                 id_entry.insert(0, doctor.get_id())
                 name_entry.insert(0, doctor.get_name())
-                gend_entry.insert(0, doctor.get_gend())
+                gend_entry.insert(0, doctor.get_gender())
                 dob_entry.insert(0, doctor.get_dob())
                 phone_entry.insert(0, doctor.get_phone())
                 email_entry.insert(0, doctor.get_email())
@@ -187,14 +187,14 @@ def doc_select(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_e
 def doc_update(doctors_list, pa_doc_list, doc_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry):
     global selected_doctor
     if selected_doctor != -1:
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
-        Label(entry_frame, bg='#ceede8', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                                  ', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=5,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=6,sticky='w')
+        Label(entry_frame, bg='#393b3a', fg='crimson', text='                   ', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
         
         id = id_entry.get()
         name = name_entry.get()
@@ -210,50 +210,50 @@ def doc_update(doctors_list, pa_doc_list, doc_tree, entry_frame, id_entry, name_
         
         #Validate ID
         if len(id) == 0:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
         elif utils.invalid_id(id, "D-") == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
         else:
             # check if new id is different from old id, if yes, check for duplication
             if id != doc_tree.item(selected_doctor, 'values')[0]:
                 for doctor in doctors_list:
                     if doctor.get_id() == id:
-                        Label(entry_frame, bg='#ceede8', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
+                        Label(entry_frame, bg='#393b3a', fg='crimson', text='ID already exist', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
                         valid_check += 1
                         break
         
         # Validate Name
         if len(name) == 0:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=1,sticky='w')
             valid_check += 1
 
         # Validate Gender
         if len(gend) == 0:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
             valid_check += 1
         elif utils.invalid_gend(gend) == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
             valid_check += 1
 
         # Validate Date of Birth
         if len(dob) == 0:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
             valid_check += 1
         elif utils.invalid_dob(dob) == 1:
-            Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
+            Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=3,sticky='w')
             valid_check += 1
         
         # Validate Phone:
         if len(phone) != 0 and phone != '_':
             if utils.invalid_phone(phone) == 1:
-                Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
+                Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=4,sticky='w')
                 valid_check += 1
 
         if len(salary) != 0:
             if utils.invalid_salary(salary) == 1:
-                Label(entry_frame, bg='#ceede8', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
+                Label(entry_frame, bg='#393b3a', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=7,sticky='w')
                 valid_check += 1
 
         # If All Valid
@@ -306,9 +306,9 @@ def patients_assignment(doc_subwin, doc_tree, fulwidth, fulheight, pa_doc_list, 
         icon = PhotoImage(file = "images/Hospital_icon.png")
         docpa_subwin.iconphoto(False, icon)
         docpa_subwin.title("Patients Assignment")
-        Frame(docpa_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
-        Label(docpa_subwin, text='ASSIGNED PATIENTS', bg='#ceede8', fg='white', font=("Work Sans", 20, 'bold')).place(x=50,y=50,width=fulwidth/2-100,height=50)
-        Label(docpa_subwin, text='UNASSIGNED PATIENTS', fg='#ceede8', font=("Work Sans", 20, 'bold')).place(x=fulwidth/2+50,y=50,width=fulwidth/2-100,height=50)
+        Frame(docpa_subwin, bg='#393b3a').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
+        Label(docpa_subwin, text='ASSIGNED PATIENTS', bg='#393b3a', fg='white', font=("Work Sans", 20, 'bold')).place(x=50,y=50,width=fulwidth/2-100,height=50)
+        Label(docpa_subwin, text='UNASSIGNED PATIENTS', fg='#393b3a', font=("Work Sans", 20, 'bold')).place(x=fulwidth/2+50,y=50,width=fulwidth/2-100,height=50)
 
         # Create list of assigned and unassigned patients for selected doctor
         assigned_patients_list.clear()
@@ -358,7 +358,7 @@ def patients_assignment(doc_subwin, doc_tree, fulwidth, fulheight, pa_doc_list, 
         global unassigned_patients_count
         unassigned_patients_count = 0
         for patient in unassigned_patients_list:
-            unassigned_patients_tree.insert(parent='', index = 'end', iid=patient.get_id(), text='', values=(patient.get_id(), patient.get_name(), patient.get_gend(), patient.get_dob()))
+            unassigned_patients_tree.insert(parent='', index = 'end', iid=patient.get_id(), text='', values=(patient.get_id(), patient.get_name(), patient.get_gender(), patient.get_dob()))
             unassigned_patients_count += 1
 
         unassigned_patients_tree.place(x=fulwidth/2+50, y=100, height=fulheight-300, width=fulwidth/2-100)
@@ -390,23 +390,23 @@ def patients_assignment(doc_subwin, doc_tree, fulwidth, fulheight, pa_doc_list, 
         global assigned_patients_count
         assigned_patients_count = 0
         for patient in assigned_patients_list:
-            assigned_patients_tree.insert(parent='', index = 'end', iid=patient.get_id(), text='', values=(patient.get_id(), patient.get_name(), patient.get_gend(), patient.get_dob()))
+            assigned_patients_tree.insert(parent='', index = 'end', iid=patient.get_id(), text='', values=(patient.get_id(), patient.get_name(), patient.get_gender(), patient.get_dob()))
             assigned_patients_count += 1
 
         assigned_patients_tree.place(x=50, y=100, height=fulheight-300, width=fulwidth/2-100)
 
         # ===============================================================================
         # Count
-        Label(docpa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#ceede8', fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
+        Label(docpa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#393b3a', fg='white', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
         Label(docpa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
 
         # ===============================================================================
         # Buttons
-        assign_patient_button = Button(docpa_subwin, text='ASSIGN PATIENT', font=("Work Sans", 16, 'bold'), fg='white', bg='#ceede8', relief='ridge',
+        assign_patient_button = Button(docpa_subwin, text='ASSIGN PATIENT', font=("Work Sans", 16, 'bold'), fg='white', bg='#393b3a', relief='ridge',
             activebackground='dark blue', activeforeground='white', command=lambda: assign_patient(docpa_subwin, fulwidth, fulheight, unassigned_patients_tree, assigned_patients_tree, unassigned_patients_list, assigned_patients_list, patients_list, doctor_id, pa_doc_list))
         assign_patient_button.place(x=fulwidth/2+50, y=fulheight-150, width=250, height=50)
 
-        unassign_patient_button = Button(docpa_subwin, text='UNASSIGN PATIENT', font=("Work Sans", 16, 'bold'), fg='#ceede8', relief='ridge',
+        unassign_patient_button = Button(docpa_subwin, text='UNASSIGN PATIENT', font=("Work Sans", 16, 'bold'), fg='#393b3a', relief='ridge',
             activebackground='dark blue', activeforeground='white', command=lambda: unassign_patient(docpa_subwin, fulwidth, fulheight, unassigned_patients_tree, assigned_patients_tree, unassigned_patients_list, assigned_patients_list, patients_list, doctor_id, pa_doc_list))
         unassign_patient_button.place(x=50, y=fulheight-150, width=250, height=50)
 
@@ -437,7 +437,7 @@ def assign_patient(docpa_subwin, fulwidth, fulheight, unassigned_patients_tree, 
         assigned_patients_count += 1
         # ===============================================================================
         # Count
-        Label(docpa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#ceede8', fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
+        Label(docpa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#393b3a', fg='white', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
         Label(docpa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
 
 def unassign_patient(docpa_subwin, fulwidth, fulheight, unassigned_patients_tree, assigned_patients_tree, unassigned_patients_list, assigned_patients_list, patients_list, doctor_id, pa_doc_list):
@@ -468,19 +468,19 @@ def unassign_patient(docpa_subwin, fulwidth, fulheight, unassigned_patients_tree
         unassigned_patients_count += 1
         assigned_patients_count -= 1
         # Count
-        Label(docpa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#ceede8', fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
+        Label(docpa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#393b3a', fg='white', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
         Label(docpa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
 
 def doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_list):
     global selected_doctor
     selected_doctor = -1
 
-    doc_subwin = Toplevel(window)
+    doc_subwin = Toplevel()
     doc_subwin.geometry("%dx%d" % (fulwidth, fulheight))
     icon = PhotoImage(file = "images/Hospital_icon.png")
     doc_subwin.iconphoto(False, icon)
     doc_subwin.title("Doctors Information Management")
-    Frame(doc_subwin, bg='#ceede8').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
+    Frame(doc_subwin, bg='#393b3a').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
     
     assigned_patients_list = []
     unassigned_patients_list = []
@@ -523,7 +523,7 @@ def doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_l
     
     # Insert Data
     for doctor in doctors_list:
-        doc_tree.insert(parent='', index = 'end', iid=doctor.get_id(), text='', values=(doctor.get_id(), doctor.get_name(), doctor.get_gend(), doctor.get_dob()))
+        doc_tree.insert(parent='', index = 'end', iid=doctor.get_id(), text='', values=(doctor.get_id(), doctor.get_name(), doctor.get_gender(), doctor.get_dob()))
         
     doc_tree.place(x=fulwidth/2+50, y=50, height=fulheight-250, width=fulwidth/2-100)
 
@@ -531,53 +531,53 @@ def doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_l
     #=========================================================================================
     
     # Doctor Control
-    Label(doc_subwin, bg='#ceede8', fg='white', text='DOCTORS MANAGEMENT', font=("Work Sans", 20, 'bold')).place(x=50, y=25, width=fulwidth/2-100, height=50)
+    Label(doc_subwin, bg='#393b3a', fg='white', text='DOCTORS MANAGEMENT', font=("Work Sans", 20, 'bold')).place(x=50, y=25, width=fulwidth/2-100, height=50)
     Frame(doc_subwin, bg='crimson').place(x=50, y=85, width=fulwidth/2-100, height=2)
-    entry_frame = Frame(doc_subwin, bg='#ceede8')
+    entry_frame = Frame(doc_subwin, bg='#393b3a')
     entry_frame.place(x=50, y=100, width=fulwidth/2-100, height=fulheight/2)
     Frame(doc_subwin, bg='crimson').place(x=50, y=350, width=fulwidth/2-100, height=2)
-    Label(doc_subwin, text='  - Entries marked with " * " must not be empty ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=360, height=30)
-    Label(doc_subwin, text='  - ID must be " D-xxx " ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=385, height=30)
-    Label(doc_subwin, text='  - Gender must be " M " or " F " ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=410, height=30)
-    Label(doc_subwin, text='  - Date of Birth must be " dd/mm/yyyy " ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=435, height=30)
-    Label(doc_subwin, text='  - Phone & Salary must be numbers ', anchor='w', bg='#ceede8', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=460, height=30)
+    Label(doc_subwin, text='  - Entries marked with " * " must not be empty ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=360, height=30)
+    Label(doc_subwin, text='  - ID must be " D-xxx " ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=385, height=30)
+    Label(doc_subwin, text='  - Gender must be " M " or " F " ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=410, height=30)
+    Label(doc_subwin, text='  - Date of Birth must be " dd/mm/yyyy " ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=435, height=30)
+    Label(doc_subwin, text='  - Phone & Salary must be numbers ', anchor='w', bg='#393b3a', fg='white', font=("Work Sans", 12, 'bold')).place(x=50, y=460, height=30)
 
 
     # Column 0: ( * )
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=0)
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=1)
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=2)
-    Label(entry_frame, bg='#ceede8', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=3)
+    Label(entry_frame, bg='#393b3a', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=0)
+    Label(entry_frame, bg='#393b3a', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=1)
+    Label(entry_frame, bg='#393b3a', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=2)
+    Label(entry_frame, bg='#393b3a', fg='red', text='( * )', font=("Work Sans", 14, 'bold')).grid(column=0, row=3)
     
     # Column 1: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=3)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=4)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=5)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=6)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=7)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=0)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=1)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=2)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=3)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=4)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=5)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=6)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=1, row=7)
 
     # Column 2: Atribute
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - ID - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Name - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Gender - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - DoB - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=3)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Phone - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=4)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Email - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=5)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Dept - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=6)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' - Salary - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=7)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - ID - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=0)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Name - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=1)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Gender - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=2)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - DoB - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=3)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Phone - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=4)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Email - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=5)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Dept - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=6)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' - Salary - ', font=("Work Sans", 14, 'bold')).grid(column=2, row=7)
 
     # Column 3: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=3)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=4)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=5)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=6)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=7)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=0)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=1)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=2)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=3)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=4)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=5)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=6)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=3, row=7)
     
     # Column 4: Entries
     id_entry = Entry(entry_frame)
@@ -605,21 +605,21 @@ def doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_l
     salary_entry.grid(column=4,row=7)
 
     # Column 5: |
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=0)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=1)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=2)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=3)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=4)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=5)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=6)
-    Label(entry_frame, bg='#ceede8', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=7)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=0)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=1)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=2)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=3)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=4)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=5)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=6)
+    Label(entry_frame, bg='#393b3a', fg='white', text=' | ', font=("Work Sans", 14, 'bold')).grid(column=5, row=7)
 
     # Buttons
-    add_doctor_button = Button(doc_subwin, text='ADD DOCTOR',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
+    add_doctor_button = Button(doc_subwin, text='ADD DOCTOR',anchor='center',font=("Work Sans", 12,'bold'), fg='#393b3a', relief='ridge',
         activebackground='dark blue', activeforeground='white', command=lambda: doc_add(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry,phone_entry,email_entry,dept_entry,salary_entry))
     add_doctor_button.place(x=50, y=fulheight-75-85-10-50, width=150, height=50)
 
-    update_doctor_button = Button(doc_subwin, text='UPDATE',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
+    update_doctor_button = Button(doc_subwin, text='UPDATE',anchor='center',font=("Work Sans", 12,'bold'), fg='#393b3a', relief='ridge',
         activebackground='dark blue', activeforeground='white', command=lambda: doc_update(doctors_list, pa_doc_list, doc_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry, phone_entry, email_entry, dept_entry, salary_entry))
     update_doctor_button.place(x=fulwidth/2-50-150, y=fulheight-75-85-10-50, width=150, height=50)
 
@@ -635,10 +635,10 @@ def doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_l
         activebackground='crimson', activeforeground='white', command=lambda: all_doc_remove(doc_tree, doctors_list, pa_doc_list))
     remove_all_doctor_button.place(x=fulwidth-50-150, y=fulheight-75-85, width=150, height=50)
 
-    select_doctor_button = Button(doc_subwin, text='SELECT',anchor='center',font=("Work Sans", 12,'bold'), bg='#ceede8',fg='white', relief='ridge',
+    select_doctor_button = Button(doc_subwin, text='SELECT',anchor='center',font=("Work Sans", 12,'bold'), bg='#393b3a',fg='white', relief='ridge',
         activebackground='dark blue', activeforeground='white', command=lambda: doc_select(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entry, dob_entry,phone_entry,email_entry,dept_entry,salary_entry))
     select_doctor_button.place(x=fulwidth/2+50, y=fulheight-75-85, width=150, height=50)
 
-    patients_assignment_button = Button(doc_subwin, text='PATIENTS ASSIGNMENT',anchor='center',font=("Work Sans", 12,'bold'), fg='#ceede8', relief='ridge',
+    patients_assignment_button = Button(doc_subwin, text='PATIENTS ASSIGNMENT',anchor='center',font=("Work Sans", 12,'bold'), fg='#393b3a', relief='ridge',
         activebackground='dark blue', activeforeground='white', command=lambda: patients_assignment(doc_subwin, doc_tree, fulwidth, fulheight, pa_doc_list, patients_list, assigned_patients_list, unassigned_patients_list))
     patients_assignment_button.place(x=50,y=fulheight-75-85, width=fulwidth/2-100, height=50)

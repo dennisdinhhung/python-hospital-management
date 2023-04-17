@@ -11,7 +11,6 @@ import methods.RoomMethods as RoomMethods
 import methods.EmployeeMethods as EmployeeMethods
 
 
-
 import database
 
 def on_GUI_loaded():
@@ -59,7 +58,8 @@ global pa_room_list
 pa_room_list = []
 
 fulwidth = 1200
-fulheight = 800
+fulheight =800
+
 def create_window(window):
     new_window = Toplevel()
     new_window.geometry("1000x800")
@@ -81,7 +81,7 @@ def create_window(window):
     Label.img = Hos_icon
     
     doctors_button = Button(new_window, text="DOCTORS", anchor="center", font=("Work Sans", 20), bg="#99CCCD", fg="white", relief="ridge", 
-            activebackground="#88C1C2", activeforeground="white", command=lambda: DoctorMethods.doc_press(window, doctors_list, patients_list, pa_doc_list))
+            activebackground="#88C1C2", activeforeground="white", command=lambda: DoctorMethods.doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_list))
     doctors_button.place(x=100, y=800-500, width=1000-200, height = 50)
     employee_button = Button(new_window, text="EMPLOYEES", anchor="center", font=("Work Sans", 20), bg="#99CCCD", fg="white", relief="ridge", 
             activebackground="#88C1C2", activeforeground="white", command=lambda: EmployeeMethods.emp_press(window, fulwidth, fulheight, employee_list))
@@ -119,5 +119,10 @@ Label(window, image=Hos_Image, bg="#319997", anchor="center").pack()
 Label(window, text="""HOSPITAL INFORMATION 
 MANAGEMENT SYSTEM""", bg="#319997", fg="#e6edec", font=("Work Sans", 45, "bold")).pack()
 
+def main():
+    on_GUI_loaded()
+    window.protocol("WM_DELETE_WINDOW", on_exit)
+    window.mainloop()
 
-window.mainloop()
+if __name__ == "__main__":
+    main()
