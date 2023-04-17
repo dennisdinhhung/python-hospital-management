@@ -87,12 +87,12 @@ def create_window(new_window):
     Label(new_window, image=Hos_icon, bg="#ceede8", anchor="center").place(x=1000/2-68, y=1000/10)
     Label.img = Hos_icon
     
-    with Image.open("images\Doctor.png") as img2:
+    with Image.open("images\Doctor_icon.png") as img2:
         Doc_icon = ImageTk.PhotoImage(img2.resize((120,120)))
     Label(new_window, image=Doc_icon, bg="#ceede8", anchor="center").place(x=190, y=800-520)
     Label.img2 = Doc_icon
     
-    with Image.open("images\Employee.png") as img3:
+    with Image.open("images\Employee_icon.png") as img3:
         Emp_icon = ImageTk.PhotoImage(img3.resize((120,120)))
     Label(new_window, image=Emp_icon, bg="#ceede8", anchor="center").place(x=690, y=800-520)
     Label.img3 = Emp_icon
@@ -102,22 +102,22 @@ def create_window(new_window):
     Label(new_window, image=Patient_icon, bg="#ceede8", anchor="center").place(x=190, y=800-260)
     Label.img4 = Patient_icon
     
-    with Image.open("images\Healing_icon.png") as img5:
+    with Image.open("images\Room_icon.png") as img5:
         Room_icon = ImageTk.PhotoImage(img5.resize((120,120)))
     Label(new_window, image=Room_icon, bg="#ceede8", anchor="center").place(x=690, y=800-260)
     Label.img5 = Room_icon
     
     
-    doctors_button = Button(new_window, text="DOCTORS", anchor="center", font=("Work Sans", 20, 'bold'), bg="#99CCCD", fg="white", relief="ridge", 
+    doctors_button = Button(new_window, text="DOCTORS", anchor="center", font=("Work Sans", 20, 'bold'), bg="#99CCCD", fg="black", relief="ridge", 
             activebackground="#88C1C2", activeforeground="white", command=lambda: DoctorMethods.doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_list))
     doctors_button.place(x=100/2, y=800-400, width=1000-600, height = 50)
-    employee_button = Button(new_window, text="EMPLOYEES", anchor="center", font=("Work Sans", 20, 'bold'), bg="#99CCCD", fg="white", relief="ridge", 
+    employee_button = Button(new_window, text="EMPLOYEES", anchor="center", font=("Work Sans", 20, 'bold'), bg="#99CCCD", fg="black", relief="ridge", 
             activebackground="#88C1C2", activeforeground="white", command=lambda: EmployeeMethods.emp_press(window, fulwidth, fulheight, employee_list))
     employee_button.place(x=550, y=800-400, width=1000-600, height = 50)
-    patients_button = Button(new_window, text="PATIENTS", anchor="center", font=("Work Sans", 20, 'bold'), bg="#99CCCD", fg="white", relief="ridge", 
+    patients_button = Button(new_window, text="PATIENTS", anchor="center", font=("Work Sans", 20, 'bold'), bg="#99CCCD", fg="black", relief="ridge", 
             activebackground="#88C1C2", activeforeground="white", command=lambda: PatientMethods.pat_press(window, fulwidth, fulheight, doctors_list, patients_list, room_list, pa_doc_list, pa_room_list))
     patients_button.place(x=100/2, y=800-140, width=1000-600, height = 50)
-    room_button = Button(new_window, text="ROOM", anchor="center", font=("Work Sans", 20, 'bold'),  bg="#99CCCD", fg="white", relief="ridge", 
+    room_button = Button(new_window, text="ROOM", anchor="center", font=("Work Sans", 20, 'bold'),  bg="#99CCCD", fg="black", relief="ridge", 
             activebackground="#88C1C2", activeforeground="white", command=lambda: RoomMethods.room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_list))
     room_button.place(x=550, y=800-140, width=1000-600, height = 50)
 
