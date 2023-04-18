@@ -2,10 +2,6 @@ from tkinter import *
 import tkinter as tk
 from PIL import ImageTk, Image
 
-from domains.Employee import Employee
-from domains.Doctor import Doctor
-from domains.Room import Room
-from domains.Patient import Patient
 import methods.DoctorMethods as DoctorMethods
 import methods.PatientMethods as PatientMethods
 import methods.RoomMethods as RoomMethods
