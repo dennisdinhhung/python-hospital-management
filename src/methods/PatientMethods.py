@@ -491,6 +491,7 @@ def pat_press(window, fulwidth, fulheight, doctors_list, patients_list, room_lis
     selected_patient = -1
 
     pat_subwin = Toplevel()
+    pat_subwin.config(background="white")
     pat_subwin.geometry("%dx%d" % (fulwidth, fulheight))
     icon = PhotoImage(file = "images/Hospital_icon.png")
     pat_subwin.iconphoto(False, icon)

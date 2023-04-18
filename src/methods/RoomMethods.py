@@ -375,6 +375,7 @@ def room_press(window, fulwidth, fulheight, room_list, patients_list, pa_room_li
     selected_room = -1
 
     room_subwin = Toplevel()
+    room_subwin.config(background="white")
     room_subwin.geometry("%dx%d" % (fulwidth, fulheight))
     icon = PhotoImage(file = "images/Hospital_icon.png")
     room_subwin.iconphoto(False, icon)

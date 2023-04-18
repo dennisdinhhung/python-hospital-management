@@ -480,6 +480,7 @@ def doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_l
     selected_doctor = -1
 
     doc_subwin = Toplevel()
+    doc_subwin.config(background='white')
     doc_subwin.geometry("%dx%d" % (fulwidth, fulheight))
     icon = PhotoImage(file = "images/Hospital_icon.png")
     doc_subwin.iconphoto(False, icon)

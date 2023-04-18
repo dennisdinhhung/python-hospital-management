@@ -297,6 +297,7 @@ def emp_press(window, fulwidth, fulheight, employee_list):
     selected_employee = -1
 
     emp_subwin = Toplevel()
+    emp_subwin.config(background="white")
     emp_subwin.geometry("%dx%d" % (fulwidth, fulheight))
     icon = PhotoImage(file = "images/Hospital_icon.png")
     emp_subwin.iconphoto(False, icon)
