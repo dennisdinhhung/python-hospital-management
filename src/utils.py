@@ -109,16 +109,16 @@ def sort_people_list_by_column(treeview, arr, col, reverse):
 def sort_room_list_by_column(treeview, arr,col, reverse):
     if(col == "ID"):
         arr.sort(key=lambda x: x.get_id(),reverse=reverse)
-    if(col == "Name"):
-        arr.sort(key=lambda x: x.get_name(),reverse=reverse)
+    if(col == "Type"):
+        arr.sort(key=lambda x: x.get_type(),reverse=reverse)
     if(col == "Price"):
-        arr.sort(key=lambda x: str(x.get_stock()),reverse=reverse)
+        arr.sort(key=lambda x: str(x.get_price()),reverse=reverse)
     for i in treeview.get_children():
         treeview.delete(i)
     a_count = 0
     for element in arr:
         treeview.insert(parent='', index = 'end', iid=a_count, text='', values=(
-            element.get_id(), element.get_name(), element.get_price(), element.get_stock())
+            element.get_id(), element.get_type(), element.get_price())
         )
         a_count += 1
 

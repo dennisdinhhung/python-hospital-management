@@ -518,17 +518,19 @@ def room_asignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_room_list, room
         unassigned_room_tree = ttk.Treeview(patma_subwin, selectmode='browse', show='headings')
 
         # define columns
-        unassigned_room_tree['columns'] = ("ID", "Name")
+        unassigned_room_tree['columns'] = ("ID", "Type", "Price")
 
         # Format columns
         unassigned_room_tree.column("#0", width=0, stretch=NO)
         unassigned_room_tree.column("ID", anchor='center', width=75)
-        unassigned_room_tree.column("Name",anchor='w', width=150)
+        unassigned_room_tree.column("Type",anchor='center', width=100)
+        unassigned_room_tree.column("Price",anchor='e', width=150)
 
         # Create Headings
         unassigned_room_tree.heading("#0", text="")
         unassigned_room_tree.heading("ID", text="ID", anchor='center', command= lambda: utils.sort_room_list_by_column(unassigned_room_tree, unassigned_room_list, "ID", False))
-        unassigned_room_tree.heading("Name", text="Name", anchor='center', command= lambda: utils.sort_room_list_by_column(unassigned_room_tree, unassigned_room_list, "Name", False))
+        unassigned_room_tree.heading("Type", text="Type", anchor='center', command= lambda: utils.sort_room_list_by_column(unassigned_room_tree, unassigned_room_list, "Type", False))
+        unassigned_room_tree.heading("Price", text="Price", anchor='center', command= lambda: utils.sort_room_list_by_column(unassigned_room_tree, unassigned_room_list, "Price", False))
 
         unassigned_room_tree.bind('<Motion>', 'break')
 
@@ -536,7 +538,7 @@ def room_asignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_room_list, room
         global unassigned_room_count
         unassigned_room_count = 0
         for room in unassigned_room_list:
-            unassigned_room_tree.insert(parent='', index = 'end', iid=room.get_id(), text='', values=(room.get_id(), room.get_name()))
+            unassigned_room_tree.insert(parent='', index = 'end', iid=room.get_id(), text='', values=(room.get_id(), room.get_type(), room.get_price()))
             unassigned_room_count += 1
 
         unassigned_room_tree.place(x=fulwidth/2+50, y=100, height=fulheight-300, width=fulwidth/2-100)
@@ -547,17 +549,19 @@ def room_asignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_room_list, room
         assigned_room_tree = ttk.Treeview(patma_subwin, selectmode='browse', show='headings')
 
         # define columns
-        assigned_room_tree['columns'] = ("ID", "Name")
+        assigned_room_tree['columns'] = ("ID", "Type", "Price")
 
         # Format columns
         assigned_room_tree.column("#0", width=0, stretch=NO)
         assigned_room_tree.column("ID", anchor='center', width=75)
-        assigned_room_tree.column("Name",anchor='w', width=150)
+        assigned_room_tree.column("Type",anchor='center', width=100)
+        assigned_room_tree.column("Price",anchor='e', width=150)
 
         # Create Headings
         assigned_room_tree.heading("#0", text="")
         assigned_room_tree.heading("ID", text="ID", anchor='center', command= lambda: utils.sort_room_list_by_column(assigned_room_tree, assigned_room_list, "ID", False))
-        assigned_room_tree.heading("Name", text="Name", anchor='center', command= lambda: utils.sort_room_list_by_column(assigned_room_tree, assigned_room_list, "Name", False))
+        assigned_room_tree.heading("Type", text="Type", anchor='center', command= lambda: utils.sort_room_list_by_column(assigned_room_tree, assigned_room_list, "Type", False))
+        assigned_room_tree.heading("Price", text="Price", anchor='center', command= lambda: utils.sort_room_list_by_column(assigned_room_tree, assigned_room_list, "Price", False))
 
         assigned_room_tree.bind('<Motion>', 'break')
 
@@ -565,7 +569,7 @@ def room_asignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_room_list, room
         global assigned_room_count
         assigned_room_count = 0
         for room in assigned_room_list:
-            assigned_room_tree.insert(parent='', index = 'end', iid=room.get_id(), text='', values=(room.get_id(), room.get_name()))
+            assigned_room_tree.insert(parent='', index = 'end', iid=room.get_id(), text='', values=(room.get_id(), room.get_type(), room.get_price()))
             assigned_room_count += 1
 
         assigned_room_tree.place(x=50, y=100, height=fulheight-300, width=fulwidth/2-100)
@@ -574,14 +578,20 @@ def room_asignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_room_list, room
         Label(patma_subwin, text=f"COUNT: {assigned_room_count}", anchor='e', bg='#88C1C2', fg='white', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
         Label(patma_subwin, text=f"COUNT: {unassigned_room_count}", anchor='e',fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
 
-        # Buttons
+        # Button
         assign_room_button = Button(patma_subwin, text='ASSIGN ROOM', font=("Work Sans", 16, 'bold'), fg='white', bg='#88C1C2', relief='ridge',
             activebackground='#88C1C2', activeforeground='white', command=lambda: assign_room(patma_subwin, fulwidth, fulheight, unassigned_room_tree, assigned_room_tree, unassigned_room_list, assigned_room_list, room_list, pa_room_list, patient_id))
-        assign_room_button.place(x=fulwidth/2+50, y=fulheight-150, width=250, height=50)
+
+            # Check assigned_room_count
+        if assigned_room_count < 1:
+            assign_room_button.place(x=fulwidth/2+50, y=fulheight-150, width=250, height=50)
+        else:
+            assign_room_button.pack_forget()
 
         unassign_room_button = Button(patma_subwin, text='UNASSIGN ROOM', font=("Work Sans", 16, 'bold'), fg='#88C1C2', relief='ridge',
             activebackground='#88C1C2', activeforeground='white', command=lambda: unassign_room(patma_subwin, fulwidth, fulheight, unassigned_room_tree, assigned_room_tree, unassigned_room_list, assigned_room_list, room_list, pa_room_list, patient_id))
         unassign_room_button.place(x=50, y=fulheight-150, width=250, height=50)
+
 
 def assign_room(patma_subwin, fulwidth, fulheight, unassigned_room_tree, assigned_room_tree, unassigned_room_list, assigned_room_list, room_list, pa_room_list, patient_id):
     if len(unassigned_room_tree.selection())>0:

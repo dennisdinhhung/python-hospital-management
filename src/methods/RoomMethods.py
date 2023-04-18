@@ -155,7 +155,7 @@ def room_update(room_list, pa_room_list, room_tree, entry_frame, id_entry, type_
         if len(id) == 0:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
-        elif utils.invalid_id(id, "M-") == 1:
+        elif utils.invalid_id(id, "R-") == 1:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Ariel", 14, 'bold')).grid(column=6,row=0,sticky='w')
             valid_check += 1
         else:

@@ -16,9 +16,6 @@ class Room():
     def get_price(self):
          return self.price
 
-    # def get_stock(self):
-    #     return self.stock
-
     def get_description(self):
         return self.description
 
