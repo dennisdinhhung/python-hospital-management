@@ -33,8 +33,8 @@ class Person():
     def set_name(self, name):
         self.name = name
 
-    def set_gend(self, gend):
-        self.gend = gend
+    def set_gend(self, gender):
+        self.gender = gender
 
     def set_dob(self, dob):
         self.dob = dob

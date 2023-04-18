@@ -43,7 +43,7 @@ def doc_add(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entr
     
     id = id_entry.get()
     name = name_entry.get()
-    gend = gend_entry.get()
+    gender = gend_entry.get()
     dob = dob_entry.get()
     phone = phone_entry.get()
     email = email_entry.get()
@@ -73,10 +73,10 @@ def doc_add(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entr
         valid_check += 1
 
     # Validate Gender
-    if len(gend) == 0:
+    if len(gender) == 0:
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
-    elif utils.invalid_gend(gend) == 1:
+    elif utils.invalid_gender(gender) == 1:
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
 
@@ -102,7 +102,7 @@ def doc_add(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entr
     # If All Valid
     if valid_check == 0:
         # Add to doctors_list
-        new_doc = Doctor(id, name, gend, dob)
+        new_doc = Doctor(id, name, gender, dob)
         if len(phone) > 0:
             new_doc.set_phone(phone)
         if len(email) > 0:
@@ -114,7 +114,7 @@ def doc_add(doctors_list, doc_tree, entry_frame, id_entry, name_entry, gend_entr
         doctors_list.append(new_doc)
 
         # Display on Treeview
-        doc_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, name, gend, dob))
+        doc_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, name, gender, dob))
 
         # Empty Entry boxes
         id_entry.delete(0, END)
@@ -198,7 +198,7 @@ def doc_update(doctors_list, pa_doc_list, doc_tree, entry_frame, id_entry, name_
         
         id = id_entry.get()
         name = name_entry.get()
-        gend = gend_entry.get()
+        gender = gend_entry.get()
         dob = dob_entry.get()
         phone = phone_entry.get()
         email = email_entry.get()
@@ -230,10 +230,10 @@ def doc_update(doctors_list, pa_doc_list, doc_tree, entry_frame, id_entry, name_
             valid_check += 1
 
         # Validate Gender
-        if len(gend) == 0:
+        if len(gender) == 0:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
             valid_check += 1
-        elif utils.invalid_gend(gend) == 1:
+        elif utils.invalid_gender(gender) == 1:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
             valid_check += 1
 
@@ -262,7 +262,7 @@ def doc_update(doctors_list, pa_doc_list, doc_tree, entry_frame, id_entry, name_
                 if doctor.get_id() == doc_tree.item(selected_doctor, 'values')[0]:
                     doctor.set_id(id)
                     doctor.set_name(name)
-                    doctor.set_gend(gend)
+                    doctor.set_gend(gender)
                     doctor.set_dob(dob)
                     if len(phone) > 0:
                         doctor.set_phone(phone)
@@ -287,7 +287,7 @@ def doc_update(doctors_list, pa_doc_list, doc_tree, entry_frame, id_entry, name_
                     relation.set_DoctorID(id)
                     
             
-            doc_tree.item(selected_doctor, text="", values = (id, name, gend, dob))
+            doc_tree.item(selected_doctor, text="", values = (id, name, gender, dob))
             selected_doctor = -1
         
             id_entry.delete(0, END)

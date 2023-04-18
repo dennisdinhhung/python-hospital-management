@@ -43,7 +43,7 @@ def emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_ent
     
     id = id_entry.get()
     name = name_entry.get()
-    gend = gend_entry.get()
+    gender = gend_entry.get()
     dob = dob_entry.get()
     phone = phone_entry.get()
     email = email_entry.get()
@@ -73,10 +73,10 @@ def emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_ent
         valid_check += 1
 
     # Validate Gender
-    if len(gend) == 0:
+    if len(gender) == 0:
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
-    elif utils.invalid_gend(gend) == 1:
+    elif utils.invalid_gender(gender) == 1:
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
 
@@ -102,7 +102,7 @@ def emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_ent
     # If All Valid
     if valid_check == 0:
         # Add to employee_list
-        new_emp = Employee(id, name, gend, dob)
+        new_emp = Employee(id, name, gender, dob)
         if len(phone) > 0:
             new_emp.set_phone(phone)
         if len(email) > 0:
@@ -114,7 +114,7 @@ def emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_ent
         employee_list.append(new_emp)
 
         # Display on Treeview
-        emp_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, name, gend, dob))
+        emp_tree.insert(parent='', index = 'end', iid=id, text='', values=(id, name, gender, dob))
 
         # Empty Entry boxes
         id_entry.delete(0, END)
@@ -193,7 +193,7 @@ def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
         
         id = id_entry.get()
         name = name_entry.get()
-        gend = gend_entry.get()
+        gender = gend_entry.get()
         dob = dob_entry.get()
         phone = phone_entry.get()
         email = email_entry.get()
@@ -225,10 +225,10 @@ def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
             valid_check += 1
 
         # Validate Gender
-        if len(gend) == 0:
+        if len(gender) == 0:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
             valid_check += 1
-        elif utils.invalid_gend(gend) == 1:
+        elif utils.invalid_gender(gender) == 1:
             Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
             valid_check += 1
 
@@ -257,7 +257,7 @@ def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
                 if employee.get_id() == emp_tree.item(selected_employee, 'values')[0]:
                     employee.set_id(id)
                     employee.set_name(name)
-                    employee.set_gend(gend)
+                    employee.set_gend(gender)
                     employee.set_dob(dob)
                     if len(phone) > 0:
                         employee.set_phone(phone)
@@ -276,7 +276,7 @@ def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
                     elif len(salary) == 0:
                         employee.set_salary(0)
                     break
-            emp_tree.item(selected_employee, text="", values = (id, name, gend, dob))
+            emp_tree.item(selected_employee, text="", values = (id, name, gender, dob))
             selected_employee = -1
         
             id_entry.delete(0, END)
