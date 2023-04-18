@@ -299,10 +299,10 @@ def patients_assignment(room_subwin, room_tree, fulwidth, fulheight, pa_room_lis
         # ===============================================================================
 
         Label(roompa_subwin, text=f"COUNT: {assigned_patients_count}", anchor='e', bg='#88C1C2', fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4+50,y=fulheight-150,width=200,height=50)
-        Label(roompa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='black', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
+        Label(roompa_subwin, text=f"COUNT: {unassigned_patients_count}", anchor='e',fg='white', font=("Work Sans", 16, 'bold')).place(x=fulwidth/4*3+50,y=fulheight-150,width=200,height=50)
 
         # Buttons
-        assign_patient_button = Button(roompa_subwin, text='ASSIGN PATIENT', font=("Work Sans", 16, 'bold'), fg='white', bg='#88C1C2', relief='ridge',
+        assign_patient_button = Button(roompa_subwin, text='ASSIGN PATIENT', font=("Work Sans", 16, 'bold'), fg='black', bg='#88C1C2', relief='ridge',
             activebackground='#88C1C2', activeforeground='white', command=lambda: assign_patient(roompa_subwin, fulwidth, fulheight, assigned_patients_tree, unassigned_patients_tree, assigned_patients_list, unassigned_patients_list, patients_list, room_id, pa_room_list))
         assign_patient_button.place(x=fulwidth/2+50, y=fulheight-150, width=250, height=50)
 
