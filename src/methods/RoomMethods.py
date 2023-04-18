@@ -65,7 +65,7 @@ def room_add(room_list, room_tree, entry_frame, id_entry, type_entry, price_entr
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
     elif utils.invalid_price(price) == 1:
-        Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
+        Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=2,sticky='w')
         valid_check += 1
 
     # If ALL valid:

@@ -262,7 +262,7 @@ def doc_update(doctors_list, pa_doc_list, doc_tree, entry_frame, id_entry, name_
                 if doctor.get_id() == doc_tree.item(selected_doctor, 'values')[0]:
                     doctor.set_id(id)
                     doctor.set_name(name)
-                    doctor.set_gend(gender)
+                    doctor.set_gender(gender)
                     doctor.set_dob(dob)
                     if len(phone) > 0:
                         doctor.set_phone(phone)

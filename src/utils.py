@@ -91,7 +91,7 @@ def sort_people_list_by_column(treeview, arr, col, reverse):
     if(col == "Name"):
         arr.sort(key=lambda x: x.get_name(),reverse=reverse)
     if(col == "Gender"):
-        arr.sort(key=lambda x: x.get_gend(),reverse=reverse)
+        arr.sort(key=lambda x: x.get_gender(),reverse=reverse)
     if(col == "Date of Birth"):
         arr.sort(key=lambda x: datetime.datetime.strptime(x.get_dob(), '%d/%m/%Y'),reverse=reverse)
     for i in treeview.get_children():
@@ -99,7 +99,7 @@ def sort_people_list_by_column(treeview, arr, col, reverse):
     a_count = 0
     for element in arr:
         treeview.insert(parent='', index = 'end', iid=a_count, text='', values=(
-            element.get_id(), element.get_name(), element.get_gend(), element.get_dob())
+            element.get_id(), element.get_name(), element.get_gender(), element.get_dob())
         )
         a_count += 1
 

@@ -257,7 +257,7 @@ def emp_update(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_
                 if employee.get_id() == emp_tree.item(selected_employee, 'values')[0]:
                     employee.set_id(id)
                     employee.set_name(name)
-                    employee.set_gend(gender)
+                    employee.set_gender(gender)
                     employee.set_dob(dob)
                     if len(phone) > 0:
                         employee.set_phone(phone)
