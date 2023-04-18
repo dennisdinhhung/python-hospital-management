@@ -303,7 +303,7 @@ def patients_assignment(doc_subwin, doc_tree, fulwidth, fulheight, pa_doc_list, 
     if selected_doctor != -1:    
         docpa_subwin = Toplevel(doc_subwin)
         docpa_subwin.geometry("%dx%d" % (fulwidth, fulheight))
-        icon = PhotoImage(file = "images\Hospital_icon.png")
+        icon = PhotoImage(file = "images/Hospital_icon.png")
         docpa_subwin.iconphoto(False, icon)
         docpa_subwin.title("Patients Assignment")
         Frame(docpa_subwin, bg='#88C1C2').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)
@@ -481,7 +481,7 @@ def doc_press(window, fulwidth, fulheight, doctors_list, patients_list, pa_doc_l
 
     doc_subwin = Toplevel()
     doc_subwin.geometry("%dx%d" % (fulwidth, fulheight))
-    icon = PhotoImage(file = "images\Hospital_icon.png")
+    icon = PhotoImage(file = "images/Hospital_icon.png")
     doc_subwin.iconphoto(False, icon)
     doc_subwin.title("Doctors Information Management")
     Frame(doc_subwin, bg='#88C1C2').place(x=0, y=0 ,width=fulwidth/2, height=fulheight)

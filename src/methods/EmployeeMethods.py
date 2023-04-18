@@ -57,7 +57,7 @@ def emp_add(employee_list, emp_tree, entry_frame, id_entry, name_entry, gend_ent
     if len(id) == 0:
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='EMPTY', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
-    elif utils.invalid_id(id, "W-") == 1:
+    elif utils.invalid_id(id, "E-") == 1:
         Label(entry_frame, bg='#88C1C2', fg='crimson', text='INVALID', font=("Work Sans", 14, 'bold')).grid(column=6,row=0,sticky='w')
         valid_check += 1
     else:

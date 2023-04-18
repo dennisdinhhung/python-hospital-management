@@ -2,7 +2,7 @@ import pickle
 import os
 import zipfile
 
-
+# Save files
 def save_doctors(doctors_list):
     with open("doctors.pkl", "wb") as f:
         pickle.dump(doctors_list, f, pickle.HIGHEST_PROTOCOL)
@@ -40,8 +40,7 @@ def zip_data():
     os.remove('room.pkl')
     os.remove('pa_doc.pkl')
 
-#===========================================================================
-
+# Load files
 def load_doctors():
     doctor_list = []
     if(os.path.exists("doctors.pkl")):

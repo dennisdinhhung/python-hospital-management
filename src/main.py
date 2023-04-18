@@ -77,12 +77,12 @@ def create_window(new_window):
     new_window.geometry("1000x800")
     new_window.minsize(1000, 800)
     new_window.maxsize(1000, 800)
-    new_window.title("Hospital Infolmation Management System")
+    new_window.title("Hospital Information Management System")
     new_window.config(bg="#319997")
-    icon = PhotoImage(file="images\Menu_icon.png")
+    icon = PhotoImage(file="images/Menu_icon.png")
     new_window.iconphoto(False, icon)
 
-    with Image.open("images\Menu_icon.png") as img:
+    with Image.open("images/Menu_icon.png") as img:
         Hos_icon = ImageTk.PhotoImage(img.resize((144,144)))
     
     Frame(new_window, bg="#7C809B").place(x = 20, y = 20, width = 1000-40, height = 800-40)
@@ -91,22 +91,22 @@ def create_window(new_window):
     Label(new_window, image=Hos_icon, bg="#ceede8", anchor="center").place(x=1000/2-68, y=1000/10)
     Label.img = Hos_icon
     
-    with Image.open("images\Doctor_icon.png") as img2:
+    with Image.open("images/Doctor_icon.png") as img2:
         Doc_icon = ImageTk.PhotoImage(img2.resize((120,120)))
     Label(new_window, image=Doc_icon, bg="#ceede8", anchor="center").place(x=190, y=800-520)
     Label.img2 = Doc_icon
     
-    with Image.open("images\Employee_icon.png") as img3:
+    with Image.open("images/Employee_icon.png") as img3:
         Emp_icon = ImageTk.PhotoImage(img3.resize((120,120)))
     Label(new_window, image=Emp_icon, bg="#ceede8", anchor="center").place(x=690, y=800-520)
     Label.img3 = Emp_icon
     
-    with Image.open("images\Patient_icon.png") as img4:
+    with Image.open("images/Patient_icon.png") as img4:
         Patient_icon = ImageTk.PhotoImage(img4.resize((120,120)))
     Label(new_window, image=Patient_icon, bg="#ceede8", anchor="center").place(x=190, y=800-260)
     Label.img4 = Patient_icon
     
-    with Image.open("images\Room_icon.png") as img5:
+    with Image.open("images/Room_icon.png") as img5:
         Room_icon = ImageTk.PhotoImage(img5.resize((120,120)))
     Label(new_window, image=Room_icon, bg="#ceede8", anchor="center").place(x=690, y=800-260)
     Label.img5 = Room_icon
@@ -134,25 +134,19 @@ def create_window(new_window):
     new_window.deiconify()
     new_window.protocol('WM_DELETE_WINDOW', lambda: on_close(new_window))
 
-    
-    
-    
-
 #main window
 window = Tk()
 window.geometry("1200x800")
 window.minsize(1200, 800)
 window.maxsize(1200, 800)
 
-window.title("Hospital Infolmation Management System")
+window.title("Hospital Information Management System")
 window.config(bg="#393b3a")
-icon = PhotoImage(file="images\Hospital_icon2.png")
+icon = PhotoImage(file="images/Hospital_icon2.png")
 window.iconphoto(False, icon)
 
-with Image.open("images\Hospital_icon2.png") as img:
+with Image.open("images/Hospital_icon2.png") as img:
     Hos_Image = ImageTk.PhotoImage(img.resize((600,600)))
-
-
 
 window.bind("<Button-1>", create_window)
 
