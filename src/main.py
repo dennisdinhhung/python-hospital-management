@@ -44,7 +44,11 @@ def on_exit():
   database.save_pa_room(pa_room_list)
   database.zip_data()
   window.destroy()
-#   window.deiconify()
+  
+  
+def on_close(new_window):
+    window.deiconify()
+    new_window.destroy()
 
   
 global doctors_list
@@ -125,9 +129,10 @@ def create_window(new_window):
     changeColor(employee_button, "#53cbdb", "#88C1C2")
     changeColor(patients_button, "#53cbdb", "#88C1C2")
     changeColor(room_button, "#53cbdb", "#88C1C2")
-    # window.withdraw()
-    # new_window.deiconify()
-    # new_window.protocol('WM_DELETE_WINDOW', lambda: on_exit(window))
+    window.withdraw()
+    # window.destroy()
+    new_window.deiconify()
+    new_window.protocol('WM_DELETE_WINDOW', lambda: on_close(new_window))
 
     
     

@@ -831,12 +831,17 @@ def pat_press(window, fulwidth, fulheight, doctors_list, patients_list, room_lis
     select_patient_button.place(x=fulwidth/2+50, y=fulheight-75-85, width=150, height=50)
     changeColor(select_patient_button, "#c5ede2", "white")
 
+    # doctors_assignment_button = Button(pat_subwin, text='DOCTORS ASSIGNMENT',anchor='center',font=("Work Sans", 12,'bold'), bg='white',fg='#88C1C2', relief='ridge',
+    #     activebackground='#88C1C2', activeforeground='white', command=lambda: doctors_assignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_doc_list, doctors_list, assigned_doctors_list, unassigned_doctors_list))
+    # doctors_assignment_button.place(x=50,y=fulheight-75-85, width=fulwidth/4-60, height=50)
+    # changeColor(doctors_assignment_button, "#c5ede2", "white")
+
+    # room_assignment_button = Button(pat_subwin, text='ROOMS ASSIGNMENT',anchor='center',font=("Work Sans", 12,'bold'), bg='white',fg='#88C1C2', relief='ridge',
+    #     activebackground='#88C1C2', activeforeground='white', command=lambda: room_asignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_room_list, room_list, assigned_room_list, unassigned_room_list))
+    # room_assignment_button.place(x=fulwidth/4+10,y=fulheight-75-85, width=fulwidth/4-60, height=50)
+    # changeColor(room_assignment_button, "#c5ede2", "white")
+
     doctors_assignment_button = Button(pat_subwin, text='DOCTORS ASSIGNMENT',anchor='center',font=("Work Sans", 12,'bold'), bg='white',fg='#88C1C2', relief='ridge',
         activebackground='#88C1C2', activeforeground='white', command=lambda: doctors_assignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_doc_list, doctors_list, assigned_doctors_list, unassigned_doctors_list))
-    doctors_assignment_button.place(x=50,y=fulheight-75-85, width=fulwidth/4-60, height=50)
+    doctors_assignment_button.place(x=50,y=fulheight-75-85, width=fulwidth/2-100, height=50)
     changeColor(doctors_assignment_button, "#c5ede2", "white")
-
-    room_assignment_button = Button(pat_subwin, text='ROOMS ASSIGNMENT',anchor='center',font=("Work Sans", 12,'bold'), bg='white',fg='#88C1C2', relief='ridge',
-        activebackground='#88C1C2', activeforeground='white', command=lambda: room_asignment(pat_subwin, pat_tree, fulwidth, fulheight, pa_room_list, room_list, assigned_room_list, unassigned_room_list))
-    room_assignment_button.place(x=fulwidth/4+10,y=fulheight-75-85, width=fulwidth/4-60, height=50)
-    changeColor(room_assignment_button, "#c5ede2", "white")
